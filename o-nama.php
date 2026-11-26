@@ -54,9 +54,10 @@ $flags = ['HR' => 'hr', 'BA' => 'ba', 'RS' => 'rs', 'ME' => 'me', 'MK' => 'mk', 
       <li><span class="n"><?= $i ?></span><h3><?= t("about.v{$i}_t") ?></h3><p><?= t("about.v{$i}_d") ?></p></li>
       <?php endfor; ?>
     </ol>
-    <div class="photo-row reveal">
-      <figure class="figure figure-cap"><?= photo('slavljenje-ruke') ?><figcaption><?= t('about.v3_t') ?></figcaption></figure>
-      <figure class="figure figure-cap"><?= photo('potezanje-uzeta') ?><figcaption><?= t('about.v4_t') ?></figcaption></figure>
+    <div class="photo-row three reveal">
+      <figure class="figure figure-cap"><?= photo('propovijed-suma', '', '(max-width: 700px) 100vw, 33vw') ?><figcaption><?= t('about.v3_t') ?></figcaption></figure>
+      <figure class="figure figure-cap"><?= photo('slavljenje-ruke', '', '(max-width: 700px) 100vw, 33vw') ?><figcaption><?= t('about.photo_worship') ?></figcaption></figure>
+      <figure class="figure figure-cap"><?= photo('potezanje-uzeta', '', '(max-width: 700px) 100vw, 33vw') ?><figcaption><?= t('about.v4_t') ?></figcaption></figure>
     </div>
   </div>
 </section>

@@ -344,6 +344,7 @@ return [
 'about.v3_t'          => 'The Word of God',
 'about.v3_d'          => 'Every gathering has a theme from Scripture that we study together through talks and workshops.',
 'about.v4_t'          => 'Discipline',
+'about.photo_worship' => 'Worship',
 'about.v4_d'          => 'The gathering has a light military style – rising together, line-up and physical exercise – because we believe that without discipline there is no growth.',
 'about.v5_t'          => 'Unity',
 'about.v5_d'          => 'Regardless of history, across the borders of countries, nations and churches, we show that the Body of Christ in the region is one.',

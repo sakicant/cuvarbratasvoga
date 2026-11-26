@@ -330,6 +330,7 @@ return [
 'about.v3_t'          => 'Božja beseda',
 'about.v3_d'          => 'Vsako srečanje ima temo iz Svetega pisma, ki jo skupaj preučujemo skozi pridige in delavnice.',
 'about.v4_t'          => 'Disciplina',
+'about.photo_worship' => 'Čaščenje',
 'about.v5_t'          => 'Enotnost',
 'about.v5_d'          => 'Ne glede na zgodovino, prek meja držav, narodov in cerkva kažemo, da je Kristusovo Telo v regiji eno.',
 'about.year_eyebrow'  => 'Kako poteka srečanje',

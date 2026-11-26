@@ -70,7 +70,6 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
       <span class="eyebrow"><?= t('expect.eyebrow') ?></span>
       <h2><?= t('expect.title') ?></h2>
       <p class="muted"><?= t('expect.lead') ?></p>
-      <figure class="figure"><?= photo('satori-nocu') ?></figure>
       <div class="features">
         <div class="feature">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
@@ -89,6 +88,7 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
           <h3><?= t('expect.f4_t') ?></h3><p><?= t('expect.f4_d') ?></p>
         </div>
       </div>
+      <figure class="figure" style="margin-top:26px"><?= photo('satori-nocu') ?></figure>
     </div>
   </div>
 </section>

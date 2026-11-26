@@ -344,6 +344,7 @@ return [
 'about.v3_t'          => 'Reč Božja',
 'about.v3_d'          => 'Svako okupljanje ima temu iz Svetog pisma koju zajedno proučavamo kroz propovedi i radionice.',
 'about.v4_t'          => 'Disciplina',
+'about.photo_worship' => 'Slavljenje',
 'about.v4_d'          => 'Okupljanje je u blago vojnom stilu – zajedničko buđenje, postrojavanje i fiskultura – jer verujemo da bez discipline nema ni rasta.',
 'about.v5_t'          => 'Jedinstvo',
 'about.v5_d'          => 'Bez obzira na istoriju, preko granica država, naroda i crkava pokazujemo da je Hristovo Telo u regionu jedno.',
