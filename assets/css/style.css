@@ -139,23 +139,14 @@ p { margin: 0 0 1em; }
 .bone { background: var(--bone); }
 
 /* ---------- hero ---------- */
-/* Boje zastave Bosne i Hercegovine: plava #002395, žuta #fecb00 */
 .hero {
-  --bih-blue: #002395; --bih-blue-deep: #00124f; --bih-yellow: #fecb00;
   position: relative; overflow: hidden;
   background:
-    /* žuti trokut u donjem desnom kutu, kao na zastavi */
-    linear-gradient(120deg, transparent 78%, rgba(254,203,0,.9) 78.2%, var(--bih-yellow) 88%, #f2b400 100%),
-    /* plavi prijelaz: tamno lijevo → jarko plavo desno */
-    radial-gradient(900px 520px at 70% 20%, rgba(43,88,214,.55), transparent 70%),
-    linear-gradient(120deg, var(--bih-blue-deep) 0%, #001a72 40%, var(--bih-blue) 78%);
+    radial-gradient(1000px 560px at 80% 15%, rgba(201,162,74,.16), transparent 65%),
+    radial-gradient(800px 500px at 0% 100%, rgba(201,162,74,.08), transparent 60%),
+    linear-gradient(160deg, var(--ink-2) 0%, var(--ink) 60%);
   color: var(--bone);
 }
-.hero .hero-verse, .hero .hero-facts dt { color: rgba(244,237,225,.78); }
-.hero .countdown div { background: rgba(0,10,50,.35); border-color: rgba(255,255,255,.14); }
-.hero .countdown span { color: rgba(244,237,225,.7); }
-.hero .btn-ghost { border-color: rgba(244,237,225,.5); }
-.hero .chip:not(.solid) { border-color: rgba(254,203,0,.55); color: #ffe27a; }
 .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; padding-top: 144px; padding-bottom: 88px; }
 .hero-kicker { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
 .chip {
@@ -164,9 +155,9 @@ p { margin: 0 0 1em; }
 }
 .chip.solid { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 .hero h1 { margin-bottom: .15em; }
-.hero h1 em { font-style: normal; color: #fecb00; display: block; }
-.hero-verse { font-size: 1.15rem; color: var(--muted-dark); max-width: 52ch; border-left: 3px solid #fecb00; padding-left: 18px; margin: 22px 0 30px; }
-.hero-verse cite { display: block; font-style: normal; font-size: .9rem; letter-spacing: .12em; text-transform: uppercase; color: #fecb00; margin-top: 6px; }
+.hero h1 em { font-style: normal; color: var(--gold); display: block; }
+.hero-verse { font-size: 1.15rem; color: var(--muted-dark); max-width: 52ch; border-left: 3px solid var(--gold); padding-left: 18px; margin: 22px 0 30px; }
+.hero-verse cite { display: block; font-style: normal; font-size: .9rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
 .hero-facts { display: grid; grid-template-columns: repeat(3, auto); gap: 8px 32px; margin: 0 0 34px; padding: 0; list-style: none; justify-content: start; }
 .hero-facts dt { font-family: var(--display); letter-spacing: .18em; text-transform: uppercase; font-size: .82rem; color: var(--muted-dark); }
 .hero-facts dd { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1.15; }
@@ -427,19 +418,25 @@ details.sl .inner { padding: 0 22px 22px; }
 @media (max-width: 800px) { .site-footer .cols { grid-template-columns: 1fr; } }
 
 /* ---------- hero kartica (umjesto plakata) ---------- */
+/* Kartica za ČBS 2027 u bojama zastave Bosne i Hercegovine (plava #002395, žuta #fecb00).
+   Za sljedeću godinu promijeni samo ove tri varijable. */
 .hero-ticket {
-  justify-self: end; width: 100%; max-width: 420px; position: relative;
-  background: linear-gradient(160deg, var(--ink-3), var(--ink-2));
-  border: 1px solid rgba(201,162,74,.45); border-radius: 22px; padding: 40px 34px 34px; text-align: center;
-  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+  --t-bg: #002395; --t-bg-deep: #00145c; --t-accent: #fecb00;
+  justify-self: end; width: 100%; max-width: 420px; position: relative; overflow: hidden;
+  background:
+    linear-gradient(225deg, var(--t-accent) 0 17%, transparent 17.3%),
+    linear-gradient(165deg, var(--t-bg) 0%, var(--t-bg-deep) 100%);
+  color: #fff;
+  border-radius: 22px; padding: 40px 34px 34px; text-align: center;
+  box-shadow: 0 30px 80px rgba(0,0,0,.5);
 }
-.hero-ticket::before { content: ""; position: absolute; inset: 10px; border: 1px dashed rgba(201,162,74,.3); border-radius: 16px; pointer-events: none; }
-.hero-ticket img { width: 150px; margin: 0 auto 18px; }
-.hero-ticket .t-no { font-family: var(--display); font-weight: 800; font-size: 1.1rem; letter-spacing: .3em; color: var(--gold); text-transform: uppercase; }
+.hero-ticket::before { content: ""; position: absolute; inset: 10px; border: 1px dashed rgba(255,255,255,.28); border-radius: 16px; pointer-events: none; }
+.hero-ticket img { width: 150px; margin: 0 auto 18px; position: relative; }
+.hero-ticket .t-no { font-family: var(--display); font-weight: 800; font-size: 1.1rem; letter-spacing: .3em; color: var(--t-accent); text-transform: uppercase; }
 .hero-ticket .t-date { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 4vw, 2.9rem); line-height: 1.05; margin: 6px 0 14px; }
-.hero-ticket .t-place { font-family: var(--display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; color: var(--gold-2); line-height: 1.1; }
-.hero-ticket .t-place small { display: block; font-family: var(--body); font-weight: 400; font-size: .95rem; text-transform: none; color: var(--muted-dark); margin-top: 4px; }
-.hero-ticket .t-theme { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line-dark); color: var(--muted-dark); font-size: .95rem; }
+.hero-ticket .t-place { font-family: var(--display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; color: var(--t-accent); line-height: 1.1; }
+.hero-ticket .t-place small { display: block; font-family: var(--body); font-weight: 400; font-size: .95rem; text-transform: none; color: rgba(255,255,255,.75); margin-top: 4px; }
+.hero-ticket .t-theme { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.75); font-size: .95rem; }
 @media (max-width: 900px) { .hero-ticket { justify-self: center; } }
 
 /* ---------- obrazac za prijavu ---------- */
