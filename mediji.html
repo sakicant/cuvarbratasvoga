@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mediji – propovijedi · Čuvar brata svoga</title>
+<meta name="description" content="Sve propovijedi s okupljanja Čuvar brata svoga od 2010. do danas – po godinama, temama i propovjednicima.">
+<meta property="og:title" content="Propovijedi · Čuvar brata svoga">
+<meta property="og:image" content="assets/img/plakat-2026.jpg">
+<meta name="theme-color" content="#1b1511">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Preskoči na sadržaj</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Čuvar brata svoga – početna">
+      <img src="assets/img/logo-light.png" alt="" width="50" height="39">
+      <span>Čuvar brata svoga<small>Zajedništvo braće</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Izbornik">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Glavna navigacija">
+      <a href="index.html">Početna</a>
+      <a href="index.html#okupljanje">Okupljanje</a>
+      <a href="povijest.html">Povijest</a>
+      <a href="mediji.html" aria-current="page">Mediji</a>
+      <a href="index.html#uplate">Uplate</a>
+      <a class="btn btn-gold only-live" href="index.html#prijava">Prijavi se</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Mediji</span>
+    <h1>Propovijedi</h1>
+    <p class="lead">Sve propovijedi s okupljanja od 2010. do danas. Pretraži po temi ili propovjedniku, ili odaberi godinu.</p>
+    <p style="margin:26px 0 0"><a class="btn btn-ghost" href="https://www.youtube.com/@CuvarBrataSvoga" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9L15.2 12z"/></svg>
+      YouTube kanal ↗</a></p>
+  </div>
+</section>
+
+<div class="filters">
+  <div class="wrap">
+    <div class="year-chips" id="year-chips" role="group" aria-label="Godina"></div>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Traži temu ili propovjednika…" aria-label="Pretraži propovijedi">
+    </label>
+    <label class="toggle"><input type="checkbox" id="show-promo"> Prikaži i najave</label>
+    <span class="muted" id="result-count" aria-live="polite"></span>
+  </div>
+</div>
+
+<section class="wrap" style="padding-bottom:96px">
+  <div id="media"></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo-light.png" alt="" width="64" height="50"><span>Čuvar brata svoga<small>Zajedništvo braće</small></span></a>
+        <p style="margin-top:16px;max-width:42ch">„Mi znamo da smo iz smrti prešli u život jer ljubimo braću.“ – 1. Ivanova 3:14</p>
+      </div>
+      <div>
+        <h4>Stranice</h4>
+        <ul><li><a href="index.html#okupljanje">Okupljanje</a></li><li><a href="povijest.html">Povijest</a></li><li><a href="mediji.html">Mediji</a></li><li><a href="index.html#uplate">Uplate</a></li></ul>
+      </div>
+      <div>
+        <h4>Pratite nas</h4>
+        <ul><li><a href="https://www.youtube.com/@CuvarBrataSvoga" target="_blank" rel="noopener">YouTube ↗</a></li><li><a href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Facebook ↗</a></li><li><a href="mailto:cuvar.brata.svoga@gmail.com">cuvar.brata.svoga@gmail.com</a></li></ul>
+      </div>
+    </div>
+    <div class="legal"><span>© <span id="year-now">2026</span> Čuvar brata svoga</span><span>Isus je jedina zvijezda – mi smo samo braća.</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/talks.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
