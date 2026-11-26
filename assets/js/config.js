@@ -5,6 +5,9 @@
  * dodaj ?prijave=1 na kraj adrese (npr. index.html?prijave=1).
  */
 window.CBS_EVENT = {
+  // PRIJAVE: false = na stranici se ne prikazuju kotizacije, obrazac za prijavu ni uplate.
+  // Kad otvorite prijave stavi true (i 'registration_open' => true u api/config.php).
+  registrationOpen: false,
   year: 2027,
   headline: "Boračko jezero",           // veliki naslov na početnoj (može biti i tema kad je objavite)
   themeLabel: "objavljujemo uskoro",    // tema okupljanja

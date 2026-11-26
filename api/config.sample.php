@@ -14,7 +14,7 @@ return [
     ],
 
     // Jesu li prijave otvorene? (false = API odbija nove prijave)
-    'registration_open' => true,
+    'registration_open' => false,
 
     // Baza podataka.
     // SQLite (najjednostavnije): datoteka. Preporuka: stavi je IZVAN public_html mape,

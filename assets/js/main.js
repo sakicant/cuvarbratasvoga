@@ -31,6 +31,8 @@
   var forceLive = /[?&]prijave=1/.test(location.search);
   var ended = EV.end && now > new Date(EV.end) && !forceLive;
   document.documentElement.setAttribute("data-event", ended ? "past" : "live");
+  /* kotizacije, prijava i uplate prikazuju se tek kad su prijave otvorene (ili uz ?prijave=1 za pregled) */
+  document.documentElement.setAttribute("data-reg", (EV.registrationOpen || forceLive) ? "open" : "closed");
 
   $$("[data-ev]").forEach(function (el) {
     var v = EV[el.getAttribute("data-ev")];
