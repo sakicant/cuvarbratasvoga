@@ -5,7 +5,7 @@
   --ink-2: #22332a;
   --ink-3: #2b3f34;
   --bone: #efe9dc;
-  --paper: #f8f5ee;
+  --paper: #f6f2e9;
   --text: #1e2822;
   --muted: #5d685f;
   --muted-dark: #a9b4a8;
@@ -14,7 +14,7 @@
   --gold: #cc9a2e;
   --gold-2: #e2b450;
   --gold-deep: #85621a;
-  --bark: #6b4a2f;
+  --bark: #1b2a22;   /* manje boja: naglasci na svijetlom = borova zelena */
   --footer: #0e1311;
   --sea: #1e6db0;
   --radius: 14px;
@@ -91,12 +91,12 @@ p { margin: 0 0 1em; }
 .brand img { width: 50px; height: auto; }
 .site-header .wrap { justify-content: flex-start; }
 .site-header .brand { margin-right: auto; }
-.site-header .nav { order: 1; }
-.site-header .lang { order: 2; }
+.site-header .nav { order: 2; }
+.site-header .lang { order: 1; }
 .site-header .menu-btn { order: 3; }
 
 /* izbornik jezika */
-.lang { position: relative; margin-left: 6px; }
+.lang { position: relative; margin-right: 10px; }
 .lang summary { list-style: none; cursor: pointer; font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: .1em; color: var(--bone); border: 1px solid rgba(239,233,220,.35); border-radius: 999px; padding: 6px 12px 6px 14px; display: flex; align-items: center; gap: 6px; }
 .lang summary::-webkit-details-marker { display: none; }
 .lang summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); }
@@ -139,7 +139,7 @@ p { margin: 0 0 1em; }
 .dark a:not(.btn) { color: var(--gold-2); }
 .section { padding: clamp(64px, 9vw, 112px) 0; }
 .section-head { margin-bottom: 44px; }
-.bone { background: var(--bone); }
+.bone { background: var(--paper); }
 
 /* ---------- hero ---------- */
 .hero {
@@ -189,16 +189,16 @@ p { margin: 0 0 1em; }
 }
 
 /* ---------- traka sa statistikom ---------- */
-.stats { background: var(--gold); color: var(--ink); }
+.stats { background: var(--ink); color: var(--bone); border-top: 1px solid var(--line-dark); }
 .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
-.stat { padding: 26px 16px; text-align: center; border-left: 1px solid rgba(27,42,34,.18); }
+.stat { padding: 26px 16px; text-align: center; border-left: 1px solid var(--line-dark); }
 .stat:first-child { border-left: 0; }
-.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1; }
-.stat span { font-family: var(--display); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .9rem; }
+.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1; color: var(--gold); }
+.stat span { font-family: var(--display); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .9rem; color: var(--muted-dark); }
 @media (max-width: 700px) {
   .stats .wrap { grid-template-columns: 1fr 1fr; padding: 0; }
   .stat:nth-child(3) { border-left: 0; }
-  .stat:nth-child(n+3) { border-top: 1px solid rgba(27,42,34,.18); }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line-dark); }
 }
 
 /* ---------- poziv / o okupljanju ---------- */
@@ -206,7 +206,7 @@ p { margin: 0 0 1em; }
 @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 36px; } }
 .prose p { font-size: 1.08rem; }
 .prose blockquote {
-  margin: 28px 0; padding: 22px 26px; background: var(--bone); border-radius: var(--radius);
+  margin: 28px 0; padding: 4px 0 4px 22px; background: none; border-left: 3px solid var(--gold); border-radius: 0;
   font-size: 1.15rem; font-style: italic; position: relative;
 }
 .prose blockquote cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--display); letter-spacing: .14em; text-transform: uppercase; font-size: .9rem; color: var(--bark); }
