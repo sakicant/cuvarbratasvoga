@@ -4,7 +4,7 @@ DirectoryIndex index.php index.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 # stare adrese (.html) -> nove (.php)
-RewriteRule ^(index|povijest|mediji|privatnost)\.html$ $1.php [R=301,L,QSA]
+RewriteRule ^(index|o-nama|povijest|mediji|prijava|kontakt|privatnost)\.html$ $1.php [R=301,L,QSA]
 </IfModule>
 
 # Tekstovi i pomoćne PHP datoteke nisu za izravan pristup
