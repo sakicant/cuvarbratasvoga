@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require __DIR__ . '/inc/layout.php';
+require_once __DIR__ . '/inc/layout.php';
 page_open('mediji.php', t('media.title'), t('media.description'));
 ?>
 <main id="main">

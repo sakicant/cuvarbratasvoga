@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require __DIR__ . '/inc/layout.php';
+require_once __DIR__ . '/inc/layout.php';
 page_open('povijest.php', t('hist.title'), t('hist.description'));
 
 /* godina => [poveznica na propovijedi?, istaknuto?] */

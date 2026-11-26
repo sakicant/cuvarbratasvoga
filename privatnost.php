@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require __DIR__ . '/inc/layout.php';
+require_once __DIR__ . '/inc/layout.php';
 page_open('privatnost.php', t('privacy.title'), t('privacy.what_p'), ['solid_header' => true, 'noindex' => true]);
 ?>
 <main id="main" class="section" style="padding-top:150px">

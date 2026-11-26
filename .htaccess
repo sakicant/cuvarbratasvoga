@@ -9,7 +9,7 @@ RewriteRule ^(index|povijest|mediji|privatnost)\.html$ $1.php [R=301,L,QSA]
 
 # Tekstovi i pomoćne PHP datoteke nisu za izravan pristup
 <IfModule mod_alias.c>
-RedirectMatch 403 ^/(lang|inc)/
+RedirectMatch 403 ^/(lang|inc|tools)/
 </IfModule>
 
 Options -Indexes

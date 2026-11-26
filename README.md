@@ -67,6 +67,17 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 
 In `assets/js/talks.js` add: `{ id: "YOUTUBE_ID", year: 2027, title: "Naslov", speaker: "Ime Prezime", duration: "35:10" },`
 
+## Vercel preview (static copy)
+
+Vercel can't run PHP, so it shows a static copy from `preview/` (all pages × 7 languages; sign-up and admin hidden).
+After changing texts or design, rebuild it before pushing:
+
+```
+php tools/build-preview.php
+```
+
+`vercel.json` sends the Vercel address to `/preview/`. The real site (with sign-up) runs on the PHP server.
+
 ## Local preview
 
 ```

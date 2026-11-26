@@ -68,11 +68,27 @@ function t(string $key, array $vars = []): string
     return $s;
 }
 
+/* Poveznica na stranicu na zadanom jeziku.
+ * Na serveru: povijest.php?lang=mk. U statičnom pregledu (Vercel, tools/build-preview.php): povijest.mk.html */
+function page_url(string $page, string $lang, string $hash = ''): string
+{
+    if (defined('CBS_STATIC')) {
+        $base = basename($page, '.php');
+        return $base . ($lang !== CBS_DEFAULT_LANG ? '.' . $lang : '') . '.html' . $hash;
+    }
+    return $page . ($lang !== CBS_DEFAULT_LANG ? '?lang=' . $lang : '') . $hash;
+}
+
 /* Poveznica na stranicu u trenutnom jeziku. */
 function u(string $page = 'index.php', string $hash = ''): string
 {
-    $l = cbs_lang();
-    return $page . ($l !== CBS_DEFAULT_LANG ? '?lang=' . $l : '') . $hash;
+    return page_url($page, cbs_lang(), $hash);
+}
+
+/* Putanja do datoteke u /assets (u statičnom pregledu stranice su u podmapi). */
+function asset(string $path): string
+{
+    return (defined('CBS_ASSET_PREFIX') ? CBS_ASSET_PREFIX : '') . $path;
 }
 
 /* Tekstovi potrebni JavaScriptu (ključevi js.* i country.*). */

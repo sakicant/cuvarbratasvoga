@@ -13,6 +13,7 @@ const CBS_FOOTER_LOGO = 'assets/brand/png/cbs-logo-white-256.png';   // podnožj
 /* Jesu li prijave otvorene (iz api/config.php). Bez config.php → zatvorene. */
 function cbs_registration_open(): bool
 {
+    if (defined('CBS_STATIC')) return false;   // statični pregled nema prijava
     static $open = null;
     if ($open === null) {
         $f = __DIR__ . '/../api/config.php';
@@ -49,24 +50,27 @@ function page_open(string $page, string $title, string $description, array $opt 
 <meta name="description" content="<?= h_($description) ?>">
 <meta property="og:title" content="<?= h_($title) ?>">
 <meta property="og:description" content="<?= h_($description) ?>">
-<meta property="og:image" content="assets/brand/square/cbs-square-dark-1080.jpg">
+<meta property="og:image" content="<?= asset('assets/brand/square/cbs-square-dark-1080.jpg') ?>">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1b2a22">
 <?php if (!empty($opt['noindex'])): ?><meta name="robots" content="noindex"><?php endif; ?>
-<?php foreach (CBS_LANGS as $code => $info): ?>
+<?php if (!defined('CBS_STATIC')): foreach (CBS_LANGS as $code => $info): ?>
 <link rel="alternate" hreflang="<?= $info['html'] ?>" href="<?= h_(self_url($code)) ?>">
 <?php endforeach; ?>
 <link rel="alternate" hreflang="x-default" href="<?= h_(self_url(CBS_DEFAULT_LANG)) ?>">
-<link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="assets/brand/favicon/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<?php else: ?>
+<meta name="robots" content="noindex">
+<?php endif; ?>
+<link rel="icon" href="<?= asset('assets/brand/favicon/favicon.ico') ?>" sizes="any">
+<link rel="icon" type="image/png" href="<?= asset('assets/brand/favicon/favicon-32.png') ?>">
+<link rel="apple-touch-icon" href="<?= asset('assets/brand/favicon/apple-touch-icon.png') ?>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <?php if ($l === 'mk'): /* Barlow nema ćirilicu – za makedonski sličan font s ćirilicom */ ?>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@500;600;700;800&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <?php endif; ?>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="<?= asset('assets/css/style.css') ?>">
 </head>
 <body>
 <a class="skip" href="#main"><?= t('nav.skip') ?></a>
@@ -74,14 +78,14 @@ function page_open(string $page, string $title, string $description, array $opt 
 <header class="site-header<?= !empty($opt['solid_header']) ? ' solid' : '' ?>">
   <div class="wrap">
     <a class="brand" href="<?= u('index.php') ?>" aria-label="<?= h_(t('nav.home_aria')) ?>">
-      <img src="<?= CBS_HEADER_LOGO ?>" alt="" width="50" height="45">
+      <img src="<?= asset(CBS_HEADER_LOGO) ?>" alt="" width="50" height="45">
       <span><?= t('site.name') ?><small><?= t('site.tagline') ?></small></span>
     </a>
     <details class="lang">
       <summary aria-label="<?= h_(t('nav.lang')) ?>"><?= CBS_LANGS[$l]['short'] ?></summary>
       <ul>
         <?php foreach (CBS_LANGS as $code => $info): ?>
-        <li><a href="<?= h_($page . '?lang=' . $code) ?>" lang="<?= $info['html'] ?>" hreflang="<?= $info['html'] ?>"<?= $code === $l ? ' aria-current="true"' : '' ?>><b><?= $info['short'] ?></b> <?= h_($info['name']) ?></a></li>
+        <li><a href="<?= h_(page_url($page, $code)) ?>" lang="<?= $info['html'] ?>" hreflang="<?= $info['html'] ?>"<?= $code === $l ? ' aria-current="true"' : '' ?>><b><?= $info['short'] ?></b> <?= h_($info['name']) ?></a></li>
         <?php endforeach; ?>
       </ul>
     </details>
@@ -109,7 +113,7 @@ function page_close(array $scripts = []): void
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="brand" href="<?= u('index.php') ?>"><img src="<?= CBS_FOOTER_LOGO ?>" alt="" width="64" height="58"><span><?= t('site.name') ?><small><?= t('site.tagline') ?></small></span></a>
+        <a class="brand" href="<?= u('index.php') ?>"><img src="<?= asset(CBS_FOOTER_LOGO) ?>" alt="" width="64" height="58"><span><?= t('site.name') ?><small><?= t('site.tagline') ?></small></span></a>
         <p style="margin-top:16px;max-width:42ch"><?= t('footer.verse') ?></p>
       </div>
       <div>
@@ -132,7 +136,7 @@ function page_close(array $scripts = []): void
 </footer>
 <script>window.CBS_LANG = <?= json_encode(cbs_lang()) ?>; window.CBS_T = <?= json_encode(cbs_js_dict(), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?>;</script>
 <?php foreach (array_merge(['assets/js/config.js', 'assets/js/talks.js', 'assets/js/main.js'], $scripts) as $s): ?>
-<script src="<?= $s ?>"></script>
+<script src="<?= asset($s) ?>"></script>
 <?php endforeach; ?>
 </body>
 </html>

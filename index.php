@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require __DIR__ . '/inc/layout.php';
+require_once __DIR__ . '/inc/layout.php';
 page_open('index.php', t('home.title'), t('home.description'));
 $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
 ?>
@@ -33,7 +33,7 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
       </div>
     </div>
     <div class="hero-ticket" aria-hidden="true">
-      <img src="assets/brand/png/cbs-logo-white-512.png" alt="" width="150" height="136">
+      <img src="<?= asset('assets/brand/png/cbs-logo-white-512.png') ?>" alt="" width="150" height="136">
       <div class="t-no">ČBS <span data-ev="year">2027</span></div>
       <div class="t-date"><span data-ev="dateLabel">24. – 27. 6. 2027.</span></div>
       <div class="t-place"><?= t('event.place') ?><small><?= t('event.town') ?></small></div>
