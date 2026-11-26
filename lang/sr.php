@@ -346,7 +346,7 @@ return [
 'about.v4_t'          => 'Disciplina',
 'about.v4_d'          => 'Okupljanje je u blago vojnom stilu – zajedničko buđenje, postrojavanje i fiskultura – jer verujemo da bez discipline nema ni rasta.',
 'about.v5_t'          => 'Jedinstvo',
-'about.v5_d'          => 'Preko granica država, naroda i crkava pokazujemo da je Hristovo Telo u regionu jedno.',
+'about.v5_d'          => 'Bez obzira na istoriju, preko granica država, naroda i crkava pokazujemo da je Hristovo Telo u regionu jedno.',
 'about.year_eyebrow'  => 'Kako izgleda okupljanje',
 'about.year_title'    => 'Četiri dana zajedno, jednom godišnje',
 'about.year_p'        => 'Svakog juna okupljamo se na drugom mestu u regionu – od Zagreba 2010., preko Boračkog jezera, Adlešiča u Sloveniji i Crne Gore, do Dalmacije. Spavamo u šatorima, dan počinjemo zajedno, slušamo propovedi, učestvujemo u radionicama i provodimo vreme kao braća. Dolaze muškarci svih generacija, a mnogi očevi dovode i svoje sinove.',

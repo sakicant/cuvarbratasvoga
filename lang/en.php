@@ -346,7 +346,7 @@ return [
 'about.v4_t'          => 'Discipline',
 'about.v4_d'          => 'The gathering has a light military style – rising together, line-up and physical exercise – because we believe that without discipline there is no growth.',
 'about.v5_t'          => 'Unity',
-'about.v5_d'          => 'Across the borders of countries, nations and churches, we show that the Body of Christ in the region is one.',
+'about.v5_d'          => 'Regardless of history, across the borders of countries, nations and churches, we show that the Body of Christ in the region is one.',
 'about.year_eyebrow'  => 'What the gathering is like',
 'about.year_title'    => 'Four days together, once a year',
 'about.year_p'        => 'Every June we gather in a different place in the region – from Zagreb in 2010, via Lake Boračko, Adlešiči in Slovenia and Montenegro, to Dalmatia. We sleep in tents, start the day together, listen to talks, take part in workshops and spend time as brothers. Men of all generations come, and many fathers bring their sons too.',

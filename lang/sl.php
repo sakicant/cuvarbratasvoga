@@ -331,7 +331,7 @@ return [
 'about.v3_d'          => 'Vsako srečanje ima temo iz Svetega pisma, ki jo skupaj preučujemo skozi pridige in delavnice.',
 'about.v4_t'          => 'Disciplina',
 'about.v5_t'          => 'Enotnost',
-'about.v5_d'          => 'Prek meja držav, narodov in cerkva kažemo, da je Kristusovo Telo v regiji eno.',
+'about.v5_d'          => 'Ne glede na zgodovino, prek meja držav, narodov in cerkva kažemo, da je Kristusovo Telo v regiji eno.',
 'about.year_eyebrow'  => 'Kako poteka srečanje',
 'about.year_title'    => 'Štirje dnevi skupaj, enkrat na leto',
 'about.year_p'        => 'Vsak junij se zberemo na drugem kraju v regiji – od Zagreba leta 2010 prek Boračkega jezera, Adlešičev v Sloveniji in Črne gore do Dalmacije. Spimo v šotorih, dan začnemo skupaj, poslušamo pridige, sodelujemo v delavnicah in preživljamo čas kot bratje. Prihajajo moški vseh generacij, mnogi očetje pa pripeljejo tudi svoje sinove.',
