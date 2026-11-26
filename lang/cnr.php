@@ -142,7 +142,7 @@ return [
 'done.again'          => 'Prijavi još nekoga',
 
 'location.eyebrow'    => 'Lokacija i smještaj',
-'location.text'       => 'Boračko jezero je planinsko jezero kod Konjica, u srcu Hercegovine. Ovdje smo se okupili već 2015. godine. Smještaj je u šatorima; ko želi, može u sopstvenom aranžmanu potražiti smještaj u okolini. Tačnu lokaciju kampa i uputstva za dolazak objavićemo uz pozivno pismo.',
+'location.text'       => 'Boračko jezero je planinsko jezero kod Konjica, u srcu Hercegovine. Ovdje smo se okupili već 2015. godine. Smještaj je u šatorima; ko želi, može u sopstvenom aranžmanu potražiti smještaj u okolini. Uputstva za dolazak objavićemo uz pozivno pismo.',
 'location.map'        => 'Otvori u Google mapama ↗',
 'archive.eyebrow'     => 'Iz arhive',
 'archive.title'       => 'Najnovije propovijedi',

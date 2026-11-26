@@ -58,11 +58,14 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
     <div class="prose reveal">
       <span class="eyebrow"><?= t('invite.eyebrow') ?></span>
       <h2><?= t('invite.title') ?></h2>
-      <p><em><?= t('invite.grace') ?></em></p>
-      <p><?= t('invite.p1') ?></p>
-      <p><?= t('invite.p2') ?></p>
-      <p><?= t('invite.p3') ?></p>
-      <blockquote><?= t('invite.quote') ?><cite><?= t('invite.quote_by') ?></cite></blockquote>
+      <?php /* POZIVNO PISMO 2027: dok nije objavljeno, prikazuje se „učitavanje“.
+               Kad bude gotovo: obriši div.ph-letter i vrati odlomke iz lang datoteka (invite.grace, invite.p1…p3, invite.quote). */ ?>
+      <div class="ph-letter" aria-hidden="true">
+        <div class="ph-lines is-short"><i></i><i></i></div>
+        <div class="ph-lines"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="ph-lines"><i></i><i></i><i></i><i></i></div>
+        <div class="ph-lines is-quote"><i></i><i></i><i></i></div>
+      </div>
     </div>
     <div class="reveal">
       <span class="eyebrow"><?= t('expect.eyebrow') ?></span>
@@ -207,7 +210,8 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
       <h2><?= t('event.place') ?></h2>
       <p class="lead"><?= t('event.town') ?></p>
       <p><?= t('location.text') ?></p>
-      <p><a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Bora%C4%8Dko+jezero" data-ev-href="mapUrl" target="_blank" rel="noopener"><?= t('location.map') ?></a></p>
+      <p><a class="btn btn-dark" href="https://maps.app.goo.gl/odYD8kSuALP2ZfG36" data-ev-href="mapUrl" target="_blank" rel="noopener"><?= t('location.map') ?></a></p>
+      <p class="map-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Emek Beraka · <?= t('event.place') ?></p>
     </div>
     <div class="reveal">
       <span class="eyebrow"><?= t('archive.eyebrow') ?></span>

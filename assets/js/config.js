@@ -9,7 +9,7 @@ window.CBS_EVENT = {
   start: "2027-06-24T12:00:00+02:00",   // dolazak / registracija (za odbrojavanje)
   end:   "2027-06-27T14:00:00+02:00",   // kraj okupljanja
   dateLabel: "24. – 27. 6. 2027.",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=Bora%C4%8Dko+jezero",
+  mapUrl: "https://maps.app.goo.gl/odYD8kSuALP2ZfG36",   // točna lokacija: Emek Beraka, Boračko jezero
   email: "cuvar.brata.svoga@gmail.com",
   facebook: "https://www.facebook.com/CuvarBrataSvoga/",
   youtube: "https://www.youtube.com/@CuvarBrataSvoga"

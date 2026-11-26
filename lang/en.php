@@ -142,7 +142,7 @@ return [
 'done.again'          => 'Sign up someone else',
 
 'location.eyebrow'    => 'Location and accommodation',
-'location.text'       => 'Lake Boračko is a mountain lake near Konjic, in the heart of Herzegovina. We already gathered here in 2015. Accommodation is in tents; if you prefer, you can arrange your own accommodation in the surrounding area. We will publish the exact camp location and directions with the letter of invitation.',
+'location.text'       => 'Lake Boračko is a mountain lake near Konjic, in the heart of Herzegovina. We already gathered here in 2015. Accommodation is in tents; if you prefer, you can arrange your own accommodation in the surrounding area. We will publish directions with the letter of invitation.',
 'location.map'        => 'Open in Google Maps ↗',
 'archive.eyebrow'     => 'From the archive',
 'archive.title'       => 'Latest talks',

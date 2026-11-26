@@ -496,6 +496,26 @@ details.sl .inner { padding: 0 22px 22px; }
   .done-pay dd { margin-bottom: 8px; }
 }
 
+/* ---------- privremeni sadržaj („učitava se“) – za tekst koji još nije napisan ---------- */
+.ph-letter { margin-top: 8px; }
+.ph-lines { display: flex; flex-direction: column; gap: 12px; margin: 0 0 1.8em; }
+.ph-lines i {
+  display: block; height: 12px; border-radius: 999px;
+  background: linear-gradient(90deg, rgba(27,42,34,.09) 0%, rgba(27,42,34,.05) 40%, rgba(27,42,34,.12) 50%, rgba(27,42,34,.05) 60%, rgba(27,42,34,.09) 100%);
+  background-size: 300% 100%;
+  animation: ph-shimmer 2.4s ease-in-out infinite;
+}
+.ph-lines i:nth-child(3n)   { width: 88%; }
+.ph-lines i:nth-child(4n+2) { width: 95%; }
+.ph-lines i:last-child      { width: 62%; }
+.ph-lines.is-short i:last-child { width: 44%; }
+.ph-lines.is-quote { border-left: 3px solid var(--gold); padding-left: 22px; }
+@keyframes ph-shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .ph-lines i { animation: none; } }
+
+.map-pin { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .95rem; margin-top: -4px; }
+.map-pin svg { width: 18px; height: 18px; color: var(--gold-deep); flex: none; }
+
 /* prikaz ovisno o stanju okupljanja */
 [data-event="past"] .only-live { display: none !important; }
 [data-event="live"] .only-past { display: none !important; }
