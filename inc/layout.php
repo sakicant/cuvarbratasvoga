@@ -82,10 +82,10 @@ function page_open(string $page, string $title, string $description, array $opt 
       <span><?= t('site.name') ?><small><?= t('site.tagline') ?></small></span>
     </a>
     <details class="lang">
-      <summary aria-label="<?= h_(t('nav.lang')) ?>"><?= CBS_LANGS[$l]['short'] ?></summary>
+      <summary aria-label="<?= h_(t('nav.lang') . ': ' . CBS_LANGS[$l]['name']) ?>"><img class="flag" src="<?= asset('assets/img/flags/' . CBS_LANGS[$l]['flag'] . '.svg') ?>" width="20" height="15" alt=""><?= CBS_LANGS[$l]['short'] ?></summary>
       <ul>
         <?php foreach (CBS_LANGS as $code => $info): ?>
-        <li><a href="<?= h_(page_url($page, $code)) ?>" lang="<?= $info['html'] ?>" hreflang="<?= $info['html'] ?>"<?= $code === $l ? ' aria-current="true"' : '' ?>><b><?= $info['short'] ?></b> <?= h_($info['name']) ?></a></li>
+        <li><a href="<?= h_(page_url($page, $code)) ?>" lang="<?= $info['html'] ?>" hreflang="<?= $info['html'] ?>"<?= $code === $l ? ' aria-current="true"' : '' ?>><img class="flag" src="<?= asset('assets/img/flags/' . $info['flag'] . '.svg') ?>"  width="20" height="15" alt=""><?= h_($info['name']) ?></a></li>
         <?php endforeach; ?>
       </ul>
     </details>

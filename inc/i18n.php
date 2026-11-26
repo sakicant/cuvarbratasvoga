@@ -6,13 +6,14 @@
 declare(strict_types=1);
 
 const CBS_LANGS = [
-    'hr'  => ['name' => 'Hrvatski',    'short' => 'HR', 'html' => 'hr'],
-    'bs'  => ['name' => 'Bosanski',    'short' => 'BS', 'html' => 'bs'],
-    'sr'  => ['name' => 'Srpski',      'short' => 'SR', 'html' => 'sr-Latn'],
-    'cnr' => ['name' => 'Crnogorski',  'short' => 'CG', 'html' => 'cnr'],
-    'mk'  => ['name' => 'Македонски',  'short' => 'MK', 'html' => 'mk'],
-    'sl'  => ['name' => 'Slovenščina', 'short' => 'SL', 'html' => 'sl'],
-    'en'  => ['name' => 'English',     'short' => 'EN', 'html' => 'en'],
+    // flag = datoteka u assets/img/flags/ (oznaka države)
+    'hr'  => ['name' => 'Hrvatski',    'short' => 'HR', 'html' => 'hr',      'flag' => 'hr'],
+    'bs'  => ['name' => 'Bosanski',    'short' => 'BS', 'html' => 'bs',      'flag' => 'ba'],
+    'sr'  => ['name' => 'Srpski',      'short' => 'SR', 'html' => 'sr-Latn', 'flag' => 'rs'],
+    'cnr' => ['name' => 'Crnogorski',  'short' => 'CG', 'html' => 'cnr',     'flag' => 'me'],
+    'mk'  => ['name' => 'Македонски',  'short' => 'MK', 'html' => 'mk',      'flag' => 'mk'],
+    'sl'  => ['name' => 'Slovenščina', 'short' => 'SL', 'html' => 'sl',      'flag' => 'si'],
+    'en'  => ['name' => 'English',     'short' => 'EN', 'html' => 'en',      'flag' => 'gb'],
 ];
 const CBS_DEFAULT_LANG = 'hr';
 
