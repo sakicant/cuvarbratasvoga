@@ -6,6 +6,6 @@
   "redirects": [
     { "source": "/preview/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/index.php", "destination": "/", "permanent": false },
-    { "source": "/(o-nama|povijest|mediji|prijava|kontakt|privatnost)\.php", "destination": "/$1.html", "permanent": false }
+    { "source": "/:page(o-nama|povijest|mediji|prijava|kontakt|privatnost).php", "destination": "/:page.html", "permanent": false }
   ]
 }
