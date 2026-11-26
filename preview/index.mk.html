@@ -46,11 +46,11 @@
     </button>
     <nav class="nav" id="nav" aria-label="Главна навигација">
             <a href="index.mk.html" aria-current="page">Почетна</a>
-            <a href="index.mk.html#okupljanje">Собир</a>
+            <a href="o-nama.mk.html">За нас</a>
             <a href="povijest.mk.html">Историја</a>
             <a href="mediji.mk.html">Медиуми</a>
-            <a class="only-reg" href="index.mk.html#uplate">Уплати</a>
-      <a class="btn btn-gold only-live only-reg" href="index.mk.html#prijava">Пријави се</a>
+            <a href="kontakt.mk.html">Контакт</a>
+            <a class="btn btn-gold nav-cta" href="prijava.mk.html">Пријави се за ЧБС 2027</a>
     </nav>
       </div>
 </header>
@@ -60,10 +60,6 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="hero-kicker">
-        <span class="chip solid">ČBS <span data-ev="year">2027</span></span>
-        <span class="chip"><span data-ev="dateLabel">24. – 27. 6. 2027.</span></span>
-      </div>
       <div class="notice only-past">
         <div><strong>ЧБС <span data-ev="year">2027</span> е зад нас – благодарност до сите браќа!</strong><br>Проповедите од собирот веќе се на страницата <a href="mediji.mk.html">Медиуми</a>. Датумот и местото на следниот собир ќе ги објавиме тука и на <a href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Facebook</a>.</div>
       </div>
@@ -76,10 +72,9 @@
       </dl>
       <div class="countdown only-live" aria-label="До почетокот на собирот"></div>
       <div class="hero-actions">
-        <a class="btn btn-gold only-live only-reg" href="#prijava">Пријави се</a>
-        <a class="btn btn-gold only-live only-reg-closed" href="mediji.mk.html">Погледни ги проповедите</a>
+        <a class="btn btn-gold only-live" href="prijava.mk.html">Пријави се</a>
         <a class="btn btn-gold only-past" href="mediji.mk.html">Погледни ги проповедите</a>
-        <a class="btn btn-ghost" href="#okupljanje">Што е ЧБС?</a>
+        <a class="btn btn-ghost only-live" href="mediji.mk.html">Проповеди од претходните собири</a>
       </div>
     </div>
     <div class="hero-ticket" aria-hidden="true">
@@ -106,7 +101,7 @@
 <section class="section" id="okupljanje">
   <div class="wrap split">
     <div class="prose reveal">
-      <span class="eyebrow">Покана за братски собир</span>
+      <span class="eyebrow">Покана за Čuvar brata svoga 2027</span>
       <h2>Драги браќа</h2>
             <div class="ph-letter" aria-hidden="true">
         <div class="ph-lines is-short"><i></i><i></i></div>
@@ -143,125 +138,11 @@
 
 <!-- RASPORED: dodati ovdje kad bude poznat raspored za 2027. (stilovi .schedule već postoje u style.css) -->
 
-<!-- KOTIZACIJA I PRIJAVA (vidljivo samo kad su prijave otvorene) -->
-<section class="section bone only-reg" id="prijava">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Котизација и пријава</span>
-      <h2>Што е вклучено</h2>
-      <p class="lead">Онлајн пријавата е задолжителна. Плаќањето е можно исклучиво во евра. Износите се според ЧБС 2026 – конечните цени за 2027 ќе ги потврдиме со писмото-покана.</p>
-    </div>
-    <div class="prices reveal">
-      <div class="price accent"><h3>Котизација</h3><b>80<small>€</small></b><p>Учество на собирот, храна и маица.</p></div>
-      <div class="price"><h3>Сместување</h3><b>40<small>€</small></b><p>Шатор во кампот, три ноќевања. Спиеш надвор од кампот? Плаќаш само котизација.</p></div>
-      <div class="price"><h3>Аконтација</h3><b>20<small>€</small></b><p>Неповратна. Со уплатата на аконтацијата пријавата станува важечка.</p></div>
-      <div class="price"><h3>Татко и син</h3><b>−50<small>%</small></b><p>Синовите до 18 години имаат 50 % попуст. Третиот и секој следен син – бесплатно.</p></div>
-    </div>
-    <ol class="steps reveal">
-      <li><h3>Пријави се онлајн</h3><p>Пополни го формуларот за пријава. Потоа ќе добиеш е-пошта со упатства за уплата.</p></li>
-      <li><h3>Уплати аконтација</h3><p>20 € на сметката за твојата држава (<a href="#uplate">види уплати</a>) – со тоа пријавата е потврдена.</p></li>
-      <li><h3>Остатокот при регистрацијата</h3><p>При доаѓањето го плаќаш остатокот од котизацијата (60 €) и сместувањето (40 €) ако спиеш во кампот.</p></li>
-    </ol>
-
-    <div class="signup reveal" style="margin-top:40px">
-      <div>
-        <span class="eyebrow only-live">Пријавите се отворени</span>
-        <span class="eyebrow only-past">Пријавите се затворени</span>
-        <h2 class="only-live">Резервирај го своето место</h2>
-        <h2 class="only-past">Се гледаме следната година</h2>
-        <p class="muted only-live">Пријавата трае две минути. Прашања? Пиши ни на <a href="mailto:cuvar.brata.svoga@gmail.com">cuvar.brata.svoga@gmail.com</a>.</p>
-        <p class="muted only-past">Пријавите за следниот собир ги отвораме штом ги објавиме датумот и местото. Следи нè на Facebook за да не пропуштиш.</p>
-      </div>
-      <div class="actions">
-        <a class="btn btn-gold only-live" href="#obrazac">Пополни ја пријавата ↓</a>
-        <a class="btn btn-gold only-past" href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Следи на Facebook ↗</a>
-        <a class="btn btn-ghost" href="mediji.mk.html">Проповеди од собирите</a>
-      </div>
-    </div>
-
-    <!-- OBRAZAC ZA PRIJAVU -->
-    <div class="form-card only-live" id="obrazac">
-      <form id="signup-form" novalidate>
-        <h3 class="form-title">Пријава за ЧБС <span data-ev="year">2027</span></h3>
-        <p class="muted form-sub">Полињата означени со * се задолжителни. Пријавуваш син? Пополни посебна пријава за него (можеш да ја користиш истата е-пошта).</p>
-
-        <div class="fgrid">
-          <div class="field"><label for="f-first">Име *</label><input id="f-first" name="first_name" autocomplete="given-name" required maxlength="80"></div>
-          <div class="field"><label for="f-last">Презиме *</label><input id="f-last" name="last_name" autocomplete="family-name" required maxlength="80"></div>
-          <div class="field"><label for="f-email">Е-пошта *</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160"><small>На оваа адреса ќе стигнат упатствата за уплата.</small></div>
-          <div class="field"><label for="f-phone">Број на мобилен *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="+3…"></div>
-          <div class="field"><label for="f-birth">Датум на раѓање *</label><input id="f-birth" name="birth_date" type="date" required min="1920-01-01"></div>
-          <div class="field"><label for="f-country">Држава во која живееш *</label>
-            <select id="f-country" name="country" required>
-              <option value="">Избери…</option>
-                            <option value="HR">Хрватска</option>
-                            <option value="BA">Босна и Херцеговина</option>
-                            <option value="RS">Србија</option>
-                            <option value="ME">Црна Гора</option>
-                            <option value="MK">Северна Македонија</option>
-                            <option value="SI">Словенија</option>
-                            <option value="XX">Друго</option>
-                          </select></div>
-          <div class="field"><label for="f-city">Град *</label><input id="f-city" name="city" autocomplete="address-level2" required maxlength="80"></div>
-          <div class="field"><label for="f-address">Адреса (улица и број) *</label><input id="f-address" name="address" autocomplete="street-address" required maxlength="160"></div>
-          <div class="field full"><label for="f-church">Црква / заедница</label><input id="f-church" name="church" maxlength="120" placeholder="На пр. EPC Milost i Istina, Карловац"></div>
-
-          <fieldset class="field full" id="f-accommodation">
-            <legend>Сместување *</legend>
-            <div class="choices">
-              <label class="choice"><input type="radio" name="accommodation" value="need_tent" required><span><b>Ми треба шатор</b><small>Организаторите обезбедуваат шатор во кампот</small></span></label>
-              <label class="choice"><input type="radio" name="accommodation" value="own_tent"><span><b>Имам свој шатор</b><small>Кампувам во својот шатор</small></span></label>
-              <label class="choice"><input type="radio" name="accommodation" value="own_arrangement"><span><b>Сам се погрижив за сместување</b><small>Спијам надвор од кампот · плаќам само котизација</small></span></label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field full" id="f-tshirt">
-            <legend>Големина на маица *</legend>
-            <div class="sizes">
-                            <label><input type="radio" name="tshirt" value="S" required><span>S</span></label>
-                            <label><input type="radio" name="tshirt" value="M"><span>M</span></label>
-                            <label><input type="radio" name="tshirt" value="L"><span>L</span></label>
-                            <label><input type="radio" name="tshirt" value="XL"><span>XL</span></label>
-                            <label><input type="radio" name="tshirt" value="XXL"><span>XXL</span></label>
-                            <label><input type="radio" name="tshirt" value="XXXL"><span>XXXL</span></label>
-                          </div>
-          </fieldset>
-
-          <div class="field full"><label for="f-notes">Посебни потреби или алергии</label><textarea id="f-notes" name="notes" rows="3" maxlength="1000" placeholder="Исхрана, здравје, нешто што треба да знаеме…"></textarea></div>
-
-          <div class="hp" aria-hidden="true"><label>Веб-страница <input name="website" tabindex="-1" autocomplete="off"></label></div>
-
-          <div class="field full" id="f-consent">
-            <label class="check"><input type="checkbox" name="consent" value="1" required>
-              <span>Се согласувам организаторите на ЧБС да ги користат моите податоци за организирање на собирот и да ги гледа контакт-лицето за мојата држава. <a href="privatnost.mk.html" target="_blank">Заштита на податоци</a> *</span></label>
-          </div>
-        </div>
-
-        <div class="form-error" role="alert" hidden></div>
-        <button class="btn btn-gold btn-submit" type="submit">Испрати пријава</button>
-      </form>
-
-      <div class="form-done" id="signup-done" hidden tabindex="-1">
-        <div class="done-icon" aria-hidden="true">✓</div>
-        <h3>Пријавата е примена!</h3>
-        <p>Твојот број на пријава: <strong class="done-ref"></strong></p>
-        <p class="done-mail">Ти испративме е-пошта со упатства. Ако не ја гледаш, провери ја и папката за непосакувана пошта (спам).</p>
-        <div class="done-pay">
-          <h4>Следен чекор: уплати аконтација од 20 €</h4>
-          <p>Пријавата станува важечка кога ќе ја уплатиш аконтацијата. Како цел на уплатата напиши го бројот на пријавата и името.</p>
-          <dl class="done-pay-rows"></dl>
-        </div>
-        <button class="btn btn-dark" type="button" id="signup-again">Пријави уште некого</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- LOKACIJA -->
 <section class="section" id="lokacija">
   <div class="wrap split">
     <div class="reveal">
-      <span class="eyebrow">Локација и сместување</span>
+      <span class="eyebrow">Локација и сместување 2027</span>
       <h2>Борачко Езеро</h2>
       <p class="lead">Коњиц, Босна и Херцеговина</p>
       <p>Борачко Езеро е планинско езеро кај Коњиц, во срцето на Херцеговина. Тука се собравме уште во 2015 година. Сместувањето е во шатори; кој сака, може во сопствен аранжман да побара сместување во околината. Упатствата за доаѓање ќе ги објавиме со писмото-покана.</p>
@@ -277,18 +158,6 @@
   </div>
 </section>
 
-<!-- UPLATE (vidljivo samo kad su prijave otvorene) -->
-<section class="section bone only-reg" id="uplate">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Уплати</span>
-      <h2>Уплата на аконтација по држави</h2>
-      <p class="lead">Избери ја својата држава. Ако уплаќаш за повеќе лица, испрати ги имињата на контакт-лицето за твојата држава.</p>
-    </div>
-    <div id="payments" class="reveal"></div>
-  </div>
-</section>
-
 <!-- KONTAKT -->
 <section class="section dark" id="kontakt">
   <div class="wrap">
@@ -299,8 +168,9 @@
     <div class="contact-grid reveal">
       <div class="contact-card"><h3>Е-пошта</h3><p><a href="mailto:cuvar.brata.svoga@gmail.com">cuvar.brata.svoga@gmail.com</a></p></div>
       <div class="contact-card"><h3>Facebook и Messenger</h3><p><a href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Čuvar brata svoga ↗</a></p></div>
-      <div class="contact-card"><h3>Твојата држава</h3><p>Јави се на контакт-лицето во твојата земја. <span class="only-reg">Списокот е во делот <a href="#uplate">Уплати</a>.</span></p></div>
+      <div class="contact-card"><h3>Твојата држава</h3><p>Јави се на контакт-лицето во твојата земја. Списокот е во делот <a href="prijava.mk.html#uplate">Уплати</a>.</p></div>
     </div>
+    <p class="reveal" style="margin-top:28px"><a class="btn btn-gold" href="kontakt.mk.html">Испрати порака →</a></p>
   </div>
 </section>
 
@@ -315,10 +185,11 @@
       <div>
         <h4>Страници</h4>
         <ul>
-          <li><a href="index.mk.html#okupljanje">Собир</a></li>
+          <li><a href="o-nama.mk.html">За нас</a></li>
           <li><a href="povijest.mk.html">Историја</a></li>
           <li><a href="mediji.mk.html">Медиуми</a></li>
-          <li class="only-reg"><a href="index.mk.html#uplate">Уплати</a></li>
+          <li><a href="prijava.mk.html">Пријава за ЧБС 2027</a></li>
+          <li><a href="kontakt.mk.html">Контакт</a></li>
           <li><a href="privatnost.mk.html">Заштита на податоци</a></li>
         </ul>
       </div>
@@ -330,10 +201,9 @@
     <div class="legal"><span>© <span id="year-now">2026</span> Čuvar brata svoga</span><span>Исус е единствената ѕвезда – ние сме само браќа.</span></div>
   </div>
 </footer>
-<script>window.CBS_LANG = "mk"; window.CBS_T = {"country.HR":"Хрватска","country.BA":"Босна и Херцеговина","country.RS":"Србија","country.ME":"Црна Гора","country.MK":"Северна Македонија","country.SI":"Словенија","country.XX":"Друго","hist.y2027_t":"Наскоро: Борачко Езеро","hist.y2026_t":"Сидро на душата","hist.y2024_t":"Јубилејна година","hist.y2023_t":"Светост","hist.y2022_t":"Јунаштво и пријателство","hist.y2020_t":"Собир во живо на интернет","hist.y2019_t":"Евангелизација","hist.y2017_t":"Верност","hist.y2016_t":"Počinak","hist.y2015_t":"Чест и почит","hist.y2014_t":"Со дисциплина до извонредност","hist.y2013_t":"Ratnici i ljubavnici","hist.y2012_t":"Božji upravitelji","hist.y2010_t":"Почеток во Загреб","js.days":"дена","js.hours":"часа","js.minutes":"минути","js.seconds":"секунди","js.videos":{"one":"видео","other":"видеа"},"js.all_years":"Сите години","js.no_results":"Нема резултати за ова пребарување.","js.close":"Затвори ✕","js.open_yt":"Отвори на YouTube ↗","js.watch":"Погледни:","js.copy":"Копирај","js.copied":"Копирано ✓","js.country":"Држава","js.pay.recipient":"Примач","js.pay.bank":"Банка","js.pay.iban":"IBAN","js.pay.account":"Сметка","js.pay.purpose":"Цел на уплатата","js.pay.multi":"За повеќе лица","js.pay.multi_val":"Испратете ги имињата на {email}","js.pay.contact":"Контакт","js.pay.fallback":"Јави ни се на cuvar.brata.svoga@gmail.com за упатства за уплатата.","js.pay.purpose_val":"Донација за ЧБС – {ref} – {name}","js.err.first_name":"Внеси име.","js.err.last_name":"Внеси презиме.","js.err.email":"Внеси точна адреса на е-пошта.","js.err.phone":"Внеси број на мобилен.","js.err.birth_date":"Внеси датум на раѓање.","js.err.birth_check":"Провери го датумот на раѓање.","js.err.country":"Избери држава.","js.err.city":"Внеси град.","js.err.address":"Внеси адреса.","js.err.accommodation":"Избери сместување.","js.err.tshirt":"Избери големина на маица.","js.err.consent":"Потребна е твоја согласност.","js.err.check":"Провери ги означените полиња.","js.err.unavailable":"Пријавата моментално не е достапна.","js.err.network":"Нема врска со серверот. Провери го интернетот и обиди се повторно, или пиши ни на cuvar.brata.svoga@gmail.com.","js.err.generic":"Нешто не е во ред. Обиди се повторно.","js.sending":"Се испраќа…","js.submit":"Испрати пријава"};</script>
+<script>window.CBS_LANG = "mk"; window.CBS_T = {"country.HR":"Хрватска","country.BA":"Босна и Херцеговина","country.RS":"Србија","country.ME":"Црна Гора","country.MK":"Северна Македонија","country.SI":"Словенија","country.XX":"Друго","hist.y2027_t":"Наскоро: Борачко Езеро","hist.y2026_t":"Сидро на душата","hist.y2024_t":"Јубилејна година","hist.y2023_t":"Светост","hist.y2022_t":"Јунаштво и пријателство","hist.y2020_t":"Собир во живо на интернет","hist.y2019_t":"Евангелизација","hist.y2017_t":"Верност","hist.y2016_t":"Počinak","hist.y2015_t":"Чест и почит","hist.y2014_t":"Со дисциплина до извонредност","hist.y2013_t":"Ratnici i ljubavnici","hist.y2012_t":"Božji upravitelji","hist.y2010_t":"Почеток во Загреб","js.days":"дена","js.hours":"часа","js.minutes":"минути","js.seconds":"секунди","js.videos":{"one":"видео","other":"видеа"},"js.all_years":"Сите години","js.no_results":"Нема резултати за ова пребарување.","js.close":"Затвори ✕","js.open_yt":"Отвори на YouTube ↗","js.watch":"Погледни:","js.copy":"Копирај","js.copied":"Копирано ✓","js.country":"Држава","js.pay.recipient":"Примач","js.pay.bank":"Банка","js.pay.iban":"IBAN","js.pay.account":"Сметка","js.pay.purpose":"Цел на уплатата","js.pay.multi":"За повеќе лица","js.pay.multi_val":"Испратете ги имињата на {email}","js.pay.contact":"Контакт","js.pay.fallback":"Јави ни се на cuvar.brata.svoga@gmail.com за упатства за уплатата.","js.pay.purpose_val":"Донација за ЧБС – {ref} – {name}","js.err.first_name":"Внеси име.","js.err.last_name":"Внеси презиме.","js.err.email":"Внеси точна адреса на е-пошта.","js.err.phone":"Внеси број на мобилен.","js.err.birth_date":"Внеси датум на раѓање.","js.err.birth_check":"Провери го датумот на раѓање.","js.err.country":"Избери држава.","js.err.city":"Внеси град.","js.err.address":"Внеси адреса.","js.err.accommodation":"Избери сместување.","js.err.tshirt":"Избери големина на маица.","js.err.consent":"Потребна е твоја согласност.","js.err.check":"Провери ги означените полиња.","js.err.unavailable":"Пријавата моментално не е достапна.","js.err.network":"Нема врска со серверот. Провери го интернетот и обиди се повторно, или пиши ни на cuvar.brata.svoga@gmail.com.","js.err.generic":"Нешто не е во ред. Обиди се повторно.","js.sending":"Се испраќа…","js.submit":"Испрати пријава","js.err.name":"Внеси име.","js.err.message":"Напиши порака (најмалку 10 знаци)."};</script>
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/talks.js"></script>
 <script src="../assets/js/main.js"></script>
-<script src="../assets/js/signup.js"></script>
 </body>
 </html>

@@ -1,8 +1,24 @@
 {
   "redirects": [
-    { "source": "/", "destination": "/preview/", "permanent": false },
-    { "source": "/index.php", "destination": "/preview/", "permanent": false },
-    { "source": "/(povijest|mediji|privatnost)\\.(php|html)", "destination": "/preview/$1.html", "permanent": false },
-    { "source": "/(api|admin|inc|lang|tools|data)/(.*)", "destination": "/preview/", "permanent": false }
+    {
+      "source": "/",
+      "destination": "/preview/",
+      "permanent": false
+    },
+    {
+      "source": "/index.php",
+      "destination": "/preview/",
+      "permanent": false
+    },
+    {
+      "source": "/(o-nama|povijest|mediji|prijava|kontakt|privatnost)\\.(php|html)",
+      "destination": "/preview/$1.html",
+      "permanent": false
+    },
+    {
+      "source": "/(api|admin|inc|lang|tools|data)/(.*)",
+      "destination": "/preview/",
+      "permanent": false
+    }
   ]
 }

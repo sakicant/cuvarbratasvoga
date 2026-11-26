@@ -19,7 +19,7 @@ foreach (glob($out . '/*.html') as $old) unlink($old);
 
 require_once $root . '/inc/i18n.php';
 
-$pages = ['index', 'povijest', 'mediji', 'privatnost'];
+$pages = ['index', 'o-nama', 'povijest', 'mediji', 'prijava', 'kontakt', 'privatnost'];
 $count = 0;
 foreach (array_keys(CBS_LANGS) as $lang) {
     cbs_lang($lang);

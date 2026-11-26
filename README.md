@@ -10,7 +10,10 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 | `index.php` | Home: gathering, invitation, prices, **sign-up form**, payments by country |
 | `povijest.php` | History: documentary, mission, timeline |
 | `mediji.php` | All talks from YouTube, filter by year, search |
-| `privatnost.php` | Privacy notice linked from the sign-up form |
+| `o-nama.php` | About us: who we are, purpose, values, how the gathering works, coordinators per country |
+| `prijava.php` | **Sign-up page**: prices, steps, form, payments. Shows "registrations not open yet" and a disabled form until `registration_open` is `true` |
+| `kontakt.php` | **Contact form** – message goes to the coordinator of the sender's country (see below) |
+| `privatnost.php` | Privacy notice linked from the forms |
 | `lang/` | **All website text, one file per language** (see Languages below) |
 | `inc/layout.php` | Shared header/footer, **header logo setting** at the top |
 | `assets/brand/` | **Logo set** for all materials. Open `assets/brand/index.html` for a preview + downloads |
@@ -44,6 +47,12 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 - **Country admin** (HR, BA, RS, ME, MK, SI): sees and edits **only** applicants from their country.
   Gets an e-mail for each new sign-up from their country (if an e-mail is set).
 - Sign-ups with country "Ostalo" are visible to the main admin only.
+
+## Contact form
+
+- Every message is saved and appears in the admin panel under **Poruke** – country admins see only their country, the main admin sees all.
+- E-mail goes to: the admins of that country (their e-mail in **Admini**) → if none, `contact_emails` for that country in `api/config.php` → if none, `contact_fallback`. "Ostalo" goes to the main admin.
+- Replying to the e-mail replies directly to the sender.
 
 ## Install on the server (one time)
 

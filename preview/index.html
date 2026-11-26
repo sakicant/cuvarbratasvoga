@@ -45,11 +45,11 @@
     </button>
     <nav class="nav" id="nav" aria-label="Glavna navigacija">
             <a href="index.html" aria-current="page">Početna</a>
-            <a href="index.html#okupljanje">Okupljanje</a>
+            <a href="o-nama.html">O nama</a>
             <a href="povijest.html">Povijest</a>
             <a href="mediji.html">Mediji</a>
-            <a class="only-reg" href="index.html#uplate">Uplate</a>
-      <a class="btn btn-gold only-live only-reg" href="index.html#prijava">Prijavi se</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a class="btn btn-gold nav-cta" href="prijava.html">Prijavi se za ČBS 2027</a>
     </nav>
       </div>
 </header>
@@ -59,10 +59,6 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="hero-kicker">
-        <span class="chip solid">ČBS <span data-ev="year">2027</span></span>
-        <span class="chip"><span data-ev="dateLabel">24. – 27. 6. 2027.</span></span>
-      </div>
       <div class="notice only-past">
         <div><strong>ČBS <span data-ev="year">2027</span> je iza nas – hvala svoj braći!</strong><br>Propovijedi s okupljanja već su na stranici <a href="mediji.html">Mediji</a>. Datum i mjesto sljedećeg okupljanja objavit ćemo ovdje i na <a href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Facebooku</a>.</div>
       </div>
@@ -75,10 +71,9 @@
       </dl>
       <div class="countdown only-live" aria-label="Do početka okupljanja"></div>
       <div class="hero-actions">
-        <a class="btn btn-gold only-live only-reg" href="#prijava">Prijavi se</a>
-        <a class="btn btn-gold only-live only-reg-closed" href="mediji.html">Pogledaj propovijedi</a>
+        <a class="btn btn-gold only-live" href="prijava.html">Prijavi se</a>
         <a class="btn btn-gold only-past" href="mediji.html">Pogledaj propovijedi</a>
-        <a class="btn btn-ghost" href="#okupljanje">Što je ČBS?</a>
+        <a class="btn btn-ghost only-live" href="mediji.html">Govori s prethodnih ČBS-a</a>
       </div>
     </div>
     <div class="hero-ticket" aria-hidden="true">
@@ -105,7 +100,7 @@
 <section class="section" id="okupljanje">
   <div class="wrap split">
     <div class="prose reveal">
-      <span class="eyebrow">Poziv na bratsko okupljanje</span>
+      <span class="eyebrow">Poziv na Čuvara brata svoga 2027.</span>
       <h2>Draga braćo</h2>
             <div class="ph-letter" aria-hidden="true">
         <div class="ph-lines is-short"><i></i><i></i></div>
@@ -142,125 +137,11 @@
 
 <!-- RASPORED: dodati ovdje kad bude poznat raspored za 2027. (stilovi .schedule već postoje u style.css) -->
 
-<!-- KOTIZACIJA I PRIJAVA (vidljivo samo kad su prijave otvorene) -->
-<section class="section bone only-reg" id="prijava">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Kotizacija i prijava</span>
-      <h2>Što je uključeno</h2>
-      <p class="lead">Online prijava je obavezna. Plaćanje je moguće isključivo u eurima. Iznosi su prema ČBS 2026 – konačne cijene za 2027. potvrdit ćemo uz pozivno pismo.</p>
-    </div>
-    <div class="prices reveal">
-      <div class="price accent"><h3>Kotizacija</h3><b>80<small>€</small></b><p>Sudjelovanje na okupljanju, hrana i majica.</p></div>
-      <div class="price"><h3>Smještaj</h3><b>40<small>€</small></b><p>Šator u kampu, tri noćenja. Spavaš izvan kampa? Plaćaš samo kotizaciju.</p></div>
-      <div class="price"><h3>Akontacija</h3><b>20<small>€</small></b><p>Nepovratna. Uplatom akontacije prijava postaje važeća.</p></div>
-      <div class="price"><h3>Otac i sin</h3><b>−50<small>%</small></b><p>Sinovi do 18 godina imaju 50 % popusta. Treći i svaki sljedeći sin – besplatno.</p></div>
-    </div>
-    <ol class="steps reveal">
-      <li><h3>Prijavi se online</h3><p>Ispuni obrazac za prijavu. Nakon toga stiže e-mail s uputama za uplatu.</p></li>
-      <li><h3>Uplati akontaciju</h3><p>20 € na račun za svoju državu (<a href="#uplate">vidi uplate</a>) – time je prijava potvrđena.</p></li>
-      <li><h3>Ostatak na registraciji</h3><p>Pri dolasku plaćaš ostatak kotizacije (60 €) i smještaj (40 €) ako spavaš u kampu.</p></li>
-    </ol>
-
-    <div class="signup reveal" style="margin-top:40px">
-      <div>
-        <span class="eyebrow only-live">Prijave su otvorene</span>
-        <span class="eyebrow only-past">Prijave su zatvorene</span>
-        <h2 class="only-live">Rezerviraj svoje mjesto</h2>
-        <h2 class="only-past">Vidimo se dogodine</h2>
-        <p class="muted only-live">Prijava traje dvije minute. Pitanja? Piši nam na <a href="mailto:cuvar.brata.svoga@gmail.com">cuvar.brata.svoga@gmail.com</a>.</p>
-        <p class="muted only-past">Prijave za sljedeće okupljanje otvaramo čim objavimo datum i mjesto. Prati nas na Facebooku da ne propustiš.</p>
-      </div>
-      <div class="actions">
-        <a class="btn btn-gold only-live" href="#obrazac">Ispuni prijavu ↓</a>
-        <a class="btn btn-gold only-past" href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Prati na Facebooku ↗</a>
-        <a class="btn btn-ghost" href="mediji.html">Propovijedi s okupljanja</a>
-      </div>
-    </div>
-
-    <!-- OBRAZAC ZA PRIJAVU -->
-    <div class="form-card only-live" id="obrazac">
-      <form id="signup-form" novalidate>
-        <h3 class="form-title">Prijava za ČBS <span data-ev="year">2027</span></h3>
-        <p class="muted form-sub">Polja označena * su obavezna. Prijavljuješ sina? Ispuni zasebnu prijavu za njega (možeš koristiti isti e-mail).</p>
-
-        <div class="fgrid">
-          <div class="field"><label for="f-first">Ime *</label><input id="f-first" name="first_name" autocomplete="given-name" required maxlength="80"></div>
-          <div class="field"><label for="f-last">Prezime *</label><input id="f-last" name="last_name" autocomplete="family-name" required maxlength="80"></div>
-          <div class="field"><label for="f-email">E-mail *</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160"><small>Na ovu adresu stižu upute za uplatu.</small></div>
-          <div class="field"><label for="f-phone">Broj mobitela *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="+3…"></div>
-          <div class="field"><label for="f-birth">Datum rođenja *</label><input id="f-birth" name="birth_date" type="date" required min="1920-01-01"></div>
-          <div class="field"><label for="f-country">Država u kojoj živiš *</label>
-            <select id="f-country" name="country" required>
-              <option value="">Odaberi…</option>
-                            <option value="HR">Hrvatska</option>
-                            <option value="BA">Bosna i Hercegovina</option>
-                            <option value="RS">Srbija</option>
-                            <option value="ME">Crna Gora</option>
-                            <option value="MK">Sjeverna Makedonija</option>
-                            <option value="SI">Slovenija</option>
-                            <option value="XX">Ostalo</option>
-                          </select></div>
-          <div class="field"><label for="f-city">Grad *</label><input id="f-city" name="city" autocomplete="address-level2" required maxlength="80"></div>
-          <div class="field"><label for="f-address">Adresa (ulica i broj) *</label><input id="f-address" name="address" autocomplete="street-address" required maxlength="160"></div>
-          <div class="field full"><label for="f-church">Crkva / zajednica</label><input id="f-church" name="church" maxlength="120" placeholder="Npr. EPC Milost i Istina, Karlovac"></div>
-
-          <fieldset class="field full" id="f-accommodation">
-            <legend>Smještaj *</legend>
-            <div class="choices">
-              <label class="choice"><input type="radio" name="accommodation" value="need_tent" required><span><b>Trebam šator</b><small>Organizatori osiguravaju šator u kampu</small></span></label>
-              <label class="choice"><input type="radio" name="accommodation" value="own_tent"><span><b>Imam vlastiti šator</b><small>Kampiram u svom šatoru</small></span></label>
-              <label class="choice"><input type="radio" name="accommodation" value="own_arrangement"><span><b>Sam sam se pobrinuo za smještaj</b><small>Spavam izvan kampa · plaćam samo kotizaciju</small></span></label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field full" id="f-tshirt">
-            <legend>Veličina majice *</legend>
-            <div class="sizes">
-                            <label><input type="radio" name="tshirt" value="S" required><span>S</span></label>
-                            <label><input type="radio" name="tshirt" value="M"><span>M</span></label>
-                            <label><input type="radio" name="tshirt" value="L"><span>L</span></label>
-                            <label><input type="radio" name="tshirt" value="XL"><span>XL</span></label>
-                            <label><input type="radio" name="tshirt" value="XXL"><span>XXL</span></label>
-                            <label><input type="radio" name="tshirt" value="XXXL"><span>XXXL</span></label>
-                          </div>
-          </fieldset>
-
-          <div class="field full"><label for="f-notes">Posebne potrebe ili alergije</label><textarea id="f-notes" name="notes" rows="3" maxlength="1000" placeholder="Prehrana, zdravlje, nešto što trebamo znati…"></textarea></div>
-
-          <div class="hp" aria-hidden="true"><label>Web stranica <input name="website" tabindex="-1" autocomplete="off"></label></div>
-
-          <div class="field full" id="f-consent">
-            <label class="check"><input type="checkbox" name="consent" value="1" required>
-              <span>Pristajem da organizatori ČBS-a koriste moje podatke za organizaciju okupljanja i da ih vidi kontakt osoba za moju državu. <a href="privatnost.html" target="_blank">Zaštita podataka</a> *</span></label>
-          </div>
-        </div>
-
-        <div class="form-error" role="alert" hidden></div>
-        <button class="btn btn-gold btn-submit" type="submit">Pošalji prijavu</button>
-      </form>
-
-      <div class="form-done" id="signup-done" hidden tabindex="-1">
-        <div class="done-icon" aria-hidden="true">✓</div>
-        <h3>Prijava je zaprimljena!</h3>
-        <p>Tvoj broj prijave: <strong class="done-ref"></strong></p>
-        <p class="done-mail">Poslali smo ti e-mail s uputama. Ako ga ne vidiš, provjeri i mapu neželjene pošte.</p>
-        <div class="done-pay">
-          <h4>Sljedeći korak: uplati akontaciju 20 €</h4>
-          <p>Prijava postaje važeća kad uplatiš akontaciju. U svrhu uplate napiši broj prijave i ime.</p>
-          <dl class="done-pay-rows"></dl>
-        </div>
-        <button class="btn btn-dark" type="button" id="signup-again">Prijavi još nekoga</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- LOKACIJA -->
 <section class="section" id="lokacija">
   <div class="wrap split">
     <div class="reveal">
-      <span class="eyebrow">Lokacija i smještaj</span>
+      <span class="eyebrow">Lokacija i smještaj 2027.</span>
       <h2>Boračko jezero</h2>
       <p class="lead">Konjic, Bosna i Hercegovina</p>
       <p>Boračko jezero je planinsko jezero kod Konjica, u srcu Hercegovine. Ovdje smo se okupili već 2015. godine. Smještaj je u šatorima; tko želi, može u vlastitom aranžmanu potražiti smještaj u okolici. Upute za dolazak objavit ćemo uz pozivno pismo.</p>
@@ -276,18 +157,6 @@
   </div>
 </section>
 
-<!-- UPLATE (vidljivo samo kad su prijave otvorene) -->
-<section class="section bone only-reg" id="uplate">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Uplate</span>
-      <h2>Uplata akontacije po državama</h2>
-      <p class="lead">Odaberi svoju državu. Ako uplaćuješ za više osoba, pošalji imena kontakt osobi za svoju državu.</p>
-    </div>
-    <div id="payments" class="reveal"></div>
-  </div>
-</section>
-
 <!-- KONTAKT -->
 <section class="section dark" id="kontakt">
   <div class="wrap">
@@ -298,8 +167,9 @@
     <div class="contact-grid reveal">
       <div class="contact-card"><h3>E-mail</h3><p><a href="mailto:cuvar.brata.svoga@gmail.com">cuvar.brata.svoga@gmail.com</a></p></div>
       <div class="contact-card"><h3>Facebook i Messenger</h3><p><a href="https://www.facebook.com/CuvarBrataSvoga/" target="_blank" rel="noopener">Čuvar brata svoga ↗</a></p></div>
-      <div class="contact-card"><h3>Tvoja država</h3><p>Javi se kontakt osobi u svojoj zemlji. <span class="only-reg">Popis je u odjeljku <a href="#uplate">Uplate</a>.</span></p></div>
+      <div class="contact-card"><h3>Tvoja država</h3><p>Javi se kontakt osobi u svojoj zemlji. Popis je u odjeljku <a href="prijava.html#uplate">Uplate</a>.</p></div>
     </div>
+    <p class="reveal" style="margin-top:28px"><a class="btn btn-gold" href="kontakt.html">Pošalji poruku →</a></p>
   </div>
 </section>
 
@@ -314,10 +184,11 @@
       <div>
         <h4>Stranice</h4>
         <ul>
-          <li><a href="index.html#okupljanje">Okupljanje</a></li>
+          <li><a href="o-nama.html">O nama</a></li>
           <li><a href="povijest.html">Povijest</a></li>
           <li><a href="mediji.html">Mediji</a></li>
-          <li class="only-reg"><a href="index.html#uplate">Uplate</a></li>
+          <li><a href="prijava.html">Prijava za ČBS 2027</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="privatnost.html">Zaštita podataka</a></li>
         </ul>
       </div>
@@ -329,10 +200,9 @@
     <div class="legal"><span>© <span id="year-now">2026</span> Čuvar brata svoga</span><span>Isus je jedina zvijezda – mi smo samo braća.</span></div>
   </div>
 </footer>
-<script>window.CBS_LANG = "hr"; window.CBS_T = {"country.HR":"Hrvatska","country.BA":"Bosna i Hercegovina","country.RS":"Srbija","country.ME":"Crna Gora","country.MK":"Sjeverna Makedonija","country.SI":"Slovenija","country.XX":"Ostalo","hist.y2027_t":"Uskoro: Boračko jezero","hist.y2026_t":"Sidro duše","hist.y2024_t":"Godina jubileja","hist.y2023_t":"Svetost","hist.y2022_t":"Junaštvo i prijateljstvo","hist.y2020_t":"Okupljanje uživo na mreži","hist.y2019_t":"Evangelizacija","hist.y2017_t":"Vjernost","hist.y2016_t":"Počinak","hist.y2015_t":"Čast i poštovanje","hist.y2014_t":"Disciplinom do izvrsnosti","hist.y2013_t":"Ratnici i ljubavnici","hist.y2012_t":"Božji upravitelji","hist.y2010_t":"Početak u Zagrebu","js.days":"dana","js.hours":"sati","js.minutes":"minuta","js.seconds":"sekundi","js.videos":{"one":"video","few":"videa","other":"videa"},"js.all_years":"Sve godine","js.no_results":"Nema rezultata za ovu pretragu.","js.close":"Zatvori ✕","js.open_yt":"Otvori na YouTubeu ↗","js.watch":"Pogledaj:","js.copy":"Kopiraj","js.copied":"Kopirano ✓","js.country":"Država","js.pay.recipient":"Primatelj","js.pay.bank":"Banka","js.pay.iban":"IBAN","js.pay.account":"Račun","js.pay.purpose":"Svrha uplate","js.pay.multi":"Za više osoba","js.pay.multi_val":"Pošaljite imena na {email}","js.pay.contact":"Kontakt","js.pay.fallback":"Javi nam se na cuvar.brata.svoga@gmail.com za upute o uplati.","js.pay.purpose_val":"Donacija za ČBS – {ref} – {name}","js.err.first_name":"Upiši ime.","js.err.last_name":"Upiši prezime.","js.err.email":"Upiši ispravnu e-mail adresu.","js.err.phone":"Upiši broj mobitela.","js.err.birth_date":"Upiši datum rođenja.","js.err.birth_check":"Provjeri datum rođenja.","js.err.country":"Odaberi državu.","js.err.city":"Upiši grad.","js.err.address":"Upiši adresu.","js.err.accommodation":"Odaberi smještaj.","js.err.tshirt":"Odaberi veličinu majice.","js.err.consent":"Potrebna je tvoja privola.","js.err.check":"Provjeri označena polja.","js.err.unavailable":"Prijava trenutno nije dostupna.","js.err.network":"Nema veze s poslužiteljem. Provjeri internet i pokušaj ponovno, ili nam piši na cuvar.brata.svoga@gmail.com.","js.err.generic":"Nešto nije u redu. Pokušaj ponovno.","js.sending":"Šaljem…","js.submit":"Pošalji prijavu"};</script>
+<script>window.CBS_LANG = "hr"; window.CBS_T = {"country.HR":"Hrvatska","country.BA":"Bosna i Hercegovina","country.RS":"Srbija","country.ME":"Crna Gora","country.MK":"Sjeverna Makedonija","country.SI":"Slovenija","country.XX":"Ostalo","hist.y2027_t":"Uskoro: Boračko jezero","hist.y2026_t":"Sidro duše","hist.y2024_t":"Godina jubileja","hist.y2023_t":"Svetost","hist.y2022_t":"Junaštvo i prijateljstvo","hist.y2020_t":"Okupljanje uživo na mreži","hist.y2019_t":"Evangelizacija","hist.y2017_t":"Vjernost","hist.y2016_t":"Počinak","hist.y2015_t":"Čast i poštovanje","hist.y2014_t":"Disciplinom do izvrsnosti","hist.y2013_t":"Ratnici i ljubavnici","hist.y2012_t":"Božji upravitelji","hist.y2010_t":"Početak u Zagrebu","js.days":"dana","js.hours":"sati","js.minutes":"minuta","js.seconds":"sekundi","js.videos":{"one":"video","few":"videa","other":"videa"},"js.all_years":"Sve godine","js.no_results":"Nema rezultata za ovu pretragu.","js.close":"Zatvori ✕","js.open_yt":"Otvori na YouTubeu ↗","js.watch":"Pogledaj:","js.copy":"Kopiraj","js.copied":"Kopirano ✓","js.country":"Država","js.pay.recipient":"Primatelj","js.pay.bank":"Banka","js.pay.iban":"IBAN","js.pay.account":"Račun","js.pay.purpose":"Svrha uplate","js.pay.multi":"Za više osoba","js.pay.multi_val":"Pošaljite imena na {email}","js.pay.contact":"Kontakt","js.pay.fallback":"Javi nam se na cuvar.brata.svoga@gmail.com za upute o uplati.","js.pay.purpose_val":"Donacija za ČBS – {ref} – {name}","js.err.first_name":"Upiši ime.","js.err.last_name":"Upiši prezime.","js.err.email":"Upiši ispravnu e-mail adresu.","js.err.phone":"Upiši broj mobitela.","js.err.birth_date":"Upiši datum rođenja.","js.err.birth_check":"Provjeri datum rođenja.","js.err.country":"Odaberi državu.","js.err.city":"Upiši grad.","js.err.address":"Upiši adresu.","js.err.accommodation":"Odaberi smještaj.","js.err.tshirt":"Odaberi veličinu majice.","js.err.consent":"Potrebna je tvoja privola.","js.err.check":"Provjeri označena polja.","js.err.unavailable":"Prijava trenutno nije dostupna.","js.err.network":"Nema veze s poslužiteljem. Provjeri internet i pokušaj ponovno, ili nam piši na cuvar.brata.svoga@gmail.com.","js.err.generic":"Nešto nije u redu. Pokušaj ponovno.","js.sending":"Šaljem…","js.submit":"Pošalji prijavu","js.err.name":"Upiši ime.","js.err.message":"Napiši poruku (barem 10 znakova)."};</script>
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/talks.js"></script>
 <script src="../assets/js/main.js"></script>
-<script src="../assets/js/signup.js"></script>
 </body>
 </html>

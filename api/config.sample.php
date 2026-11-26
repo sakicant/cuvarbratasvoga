@@ -41,6 +41,19 @@ return [
         'notify_admins' => true,                                // javi adminu države za svaku novu prijavu
     ],
 
+    // Kontakt obrazac: kamo ide poruka za pojedinu državu.
+    // Prvo dobivaju admini te države (e-mail upisan u admin panelu → Admini).
+    // Ako država nema admina s e-mailom, poruka ide na adresu ispod; ako ni nje nema, na 'contact_fallback'.
+    'contact_emails' => [
+        'HR' => 'epcmilostiistina@gmail.com',
+        'BA' => 'slavko.hadzic@gmail.com',
+        'RS' => 'radovanovic7@gmail.com',
+        'ME' => 'dragan.novakovic7@gmail.com',
+        'MK' => 'halev.gevgelija@gmail.com',
+        'SI' => 'saso.krope@gmail.com',
+    ],
+    'contact_fallback' => 'cuvar.brata.svoga@gmail.com',
+
     'site_url' => 'https://cuvarbratasvoga.com',
     'timezone' => 'Europe/Zagreb',
 

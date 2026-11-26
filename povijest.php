@@ -77,7 +77,7 @@ $years = [
           $link = '';
           if ($o['link'] === 'talks') $link = '<a href="' . u('mediji.php', "#$y") . '">' . t('hist.talks_link') . '</a>';
           if ($o['link'] === 'recordings') $link = '<a href="' . u('mediji.php', "#$y") . '">' . t('hist.recordings_link') . '</a>';
-          if ($o['link'] === 'signup') $link = '<span class="only-reg"><a href="' . u('index.php', '#prijava') . '">' . t('nav.signup') . '</a></span>';
+          if ($o['link'] === 'signup') $link = '<a href="' . u('prijava.php') . '">' . t('nav.signup') . '</a>';
           $line = implode(' · ', array_filter([$desc, $link], fn($v) => $v !== ''));
       ?>
       <li<?= !empty($o['big']) ? ' class="big"' : '' ?>><div class="y"><?= $y ?></div><div><h3><?= t("hist.y{$y}_t") ?></h3><?php if ($line !== ''): ?><p><?= $line ?></p><?php endif; ?></div></li>

@@ -93,3 +93,13 @@ form.inline { margin: 0; }
   .top .who { margin-left: 0; width: 100%; }
   .stat.shirts { grid-column: 1 / -1; }
 }
+
+.count-pill { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 999px; background: var(--gold); color: var(--ink); font: 700 .8rem "Barlow"; text-align: center; margin-left: 4px; }
+.msg { margin-bottom: 14px; }
+.msg.done { opacity: .72; }
+.msg-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+.msg-head a { margin-left: 8px; }
+.msg-body { margin: 14px 0; white-space: normal; overflow-wrap: anywhere; }
+.msg-foot { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 12px; }
+.msg-foot .actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.msg-foot form { margin: 0; }

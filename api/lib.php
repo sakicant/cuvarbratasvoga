@@ -107,6 +107,20 @@ function migrate(PDO $pdo): void
         created_at $s NOT NULL,
         last_login $s
     )$end");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS messages (
+        id $pk,
+        created_at $s NOT NULL,
+        name $s NOT NULL,
+        email $s NOT NULL,
+        country $s NOT NULL,
+        message $t NOT NULL,
+        lang $s,
+        status $s NOT NULL DEFAULT 'new',
+        handled_by $s,
+        handled_at $s,
+        sent_to $t,
+        ip_hash $s
+    )$end");
     $pdo->exec("CREATE TABLE IF NOT EXISTS attempts (
         id $pk,
         kind $s NOT NULL,
@@ -172,14 +186,15 @@ function make_ref(int $id, string $country, int $year): string
 }
 
 /* ---------- e-mail ---------- */
-function send_mail(string $to, string $subject, string $body): bool
+function send_mail(string $to, string $subject, string $body, ?string $replyTo = null): bool
 {
     $m = cfg('mail');
     if (empty($m['enabled']) || !filter_var($to, FILTER_VALIDATE_EMAIL)) return false;
     $from = $m['from'];
+    if ($replyTo !== null && !filter_var($replyTo, FILTER_VALIDATE_EMAIL)) $replyTo = null;
     $headers = [
         'From: ' . mb_encode_mimeheader($m['from_name'] ?? 'ČBS', 'UTF-8') . " <$from>",
-        'Reply-To: ' . ($m['reply_to'] ?? $from),
+        'Reply-To: ' . ($replyTo ?? $m['reply_to'] ?? $from),
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
         'Content-Transfer-Encoding: 8bit',

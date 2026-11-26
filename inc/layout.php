@@ -37,9 +37,10 @@ function page_open(string $page, string $title, string $description, array $opt 
     $reg = cbs_registration_open() ? 'open' : 'closed';
     $nav = [
         ['index.php', '', t('nav.home')],
-        ['index.php', '#okupljanje', t('nav.gathering')],
+        ['o-nama.php', '', t('nav.about')],
         ['povijest.php', '', t('nav.history')],
         ['mediji.php', '', t('nav.media')],
+        ['kontakt.php', '', t('nav.contact')],
     ];
     ?><!doctype html>
 <html lang="<?= CBS_LANGS[$l]['html'] ?>" data-reg="<?= $reg ?>">
@@ -95,10 +96,9 @@ function page_open(string $page, string $title, string $description, array $opt 
     </button>
     <nav class="nav" id="nav" aria-label="<?= h_(t('nav.main')) ?>">
       <?php foreach ($nav as $i => [$p, $hash, $label]): ?>
-      <a href="<?= u($p, $hash) ?>"<?= ($p === $page && $hash === '' && $i !== 1) ? ' aria-current="page"' : '' ?>><?= $label ?></a>
+      <a href="<?= u($p, $hash) ?>"<?= $p === $page ? ' aria-current="page"' : '' ?>><?= $label ?></a>
       <?php endforeach; ?>
-      <a class="only-reg" href="<?= u('index.php', '#uplate') ?>"><?= t('nav.payments') ?></a>
-      <a class="btn btn-gold only-live only-reg" href="<?= u('index.php', '#prijava') ?>"><?= t('nav.signup') ?></a>
+      <a class="btn btn-gold nav-cta<?= $page === 'prijava.php' ? ' is-current' : '' ?>" href="<?= u('prijava.php') ?>"><?= t('nav.signup_cta') ?></a>
     </nav>
     <?php endif; ?>
   </div>
@@ -119,10 +119,11 @@ function page_close(array $scripts = []): void
       <div>
         <h4><?= t('footer.pages') ?></h4>
         <ul>
-          <li><a href="<?= u('index.php', '#okupljanje') ?>"><?= t('nav.gathering') ?></a></li>
+          <li><a href="<?= u('o-nama.php') ?>"><?= t('nav.about') ?></a></li>
           <li><a href="<?= u('povijest.php') ?>"><?= t('nav.history') ?></a></li>
           <li><a href="<?= u('mediji.php') ?>"><?= t('nav.media') ?></a></li>
-          <li class="only-reg"><a href="<?= u('index.php', '#uplate') ?>"><?= t('nav.payments') ?></a></li>
+          <li><a href="<?= u('prijava.php') ?>"><?= t('prij.h1') ?></a></li>
+          <li><a href="<?= u('kontakt.php') ?>"><?= t('nav.contact') ?></a></li>
           <li><a href="<?= u('privatnost.php') ?>"><?= t('footer.privacy') ?></a></li>
         </ul>
       </div>

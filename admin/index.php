@@ -51,6 +51,8 @@ function page_start(string $title, ?array $me = null): void
   <?php if ($me): ?>
   <nav>
     <a href="./">Prijave</a>
+    <?php [$mw, $mp] = scope($me); $mc = db()->prepare("SELECT COUNT(*) FROM messages WHERE status = 'new' AND $mw"); $mc->execute($mp); $unread = (int)$mc->fetchColumn(); ?>
+    <a href="?a=messages">Poruke<?= $unread ? ' <span class="count-pill">' . $unread . '</span>' : '' ?></a>
     <?php if (is_super($me)): ?><a href="?a=users">Admini</a><?php endif; ?>
     <a href="?a=password">Lozinka</a>
     <form method="post" action="?a=logout"><?= csrf_field() ?><button class="link">Odjava</button></form>
@@ -363,6 +365,68 @@ if ($a === 'users') {
       </form>
     </div>
     <?php
+    page_end();
+}
+
+/* ---------- poruke s kontakt obrasca ---------- */
+if ($a === 'messages') {
+    if ($isPost) {
+        csrf_check();
+        [$w, $p] = scope($me);
+        $id = (int)($_POST['id'] ?? 0);
+        $chk = db()->prepare("SELECT id FROM messages WHERE id = ? AND $w");
+        $chk->execute(array_merge([$id], $p));
+        if ($chk->fetchColumn()) {
+            $do = (string)($_POST['do'] ?? '');
+            if ($do === 'done') db()->prepare("UPDATE messages SET status = 'done', handled_by = ?, handled_at = ? WHERE id = ?")->execute([$me['username'], now(), $id]);
+            if ($do === 'reopen') db()->prepare("UPDATE messages SET status = 'new', handled_by = NULL, handled_at = NULL WHERE id = ?")->execute([$id]);
+            if ($do === 'delete') { db()->prepare('DELETE FROM messages WHERE id = ?')->execute([$id]); flash('Poruka je obrisana.'); }
+        } else {
+            flash('Poruka nije pronađena.', 'err');
+        }
+        go('a=messages' . (isset($_POST['show']) && $_POST['show'] === 'all' ? '&show=all' : ''));
+    }
+    $showAll = ($_GET['show'] ?? '') === 'all';
+    [$w, $p] = scope($me);
+    $ms = db()->prepare("SELECT * FROM messages WHERE $w" . ($showAll ? '' : " AND status = 'new'") . " ORDER BY created_at DESC LIMIT 500");
+    $ms->execute($p);
+    $msgs = $ms->fetchAll();
+    page_start('Poruke', $me);
+    ?>
+    <div class="title-row">
+      <h1>Poruke<?= $super ? '' : ' · ' . h(country_name($me['country'])) ?></h1>
+      <div class="filters" style="margin:0">
+        <a class="btn small <?= $showAll ? 'ghost' : '' ?>" href="?a=messages">Neriješene</a>
+        <a class="btn small <?= $showAll ? '' : 'ghost' ?>" href="?a=messages&amp;show=all">Sve</a>
+      </div>
+    </div>
+    <p class="muted">Poruke s kontakt obrasca na web stranici. Admin države vidi samo poruke iz svoje države. Odgovori klikom na e-mail adresu.</p>
+    <?php if (!$msgs): ?>
+      <div class="card empty"><?= $showAll ? 'Još nema poruka.' : 'Nema neriješenih poruka.' ?></div>
+    <?php else: foreach ($msgs as $m): ?>
+      <div class="card msg <?= h($m['status']) ?>">
+        <div class="msg-head">
+          <div>
+            <b><?= h($m['name']) ?></b>
+            <a href="mailto:<?= h($m['email']) ?>?subject=<?= rawurlencode('Re: Čuvar brata svoga') ?>"><?= h($m['email']) ?></a>
+            <span class="muted"> · <?= h(country_name($m['country'])) ?> · <?= h(strtoupper($m['lang'] ?? 'hr')) ?> · <?= h(date('d.m.Y H:i', strtotime($m['created_at']))) ?></span>
+          </div>
+          <span class="badge <?= $m['status'] === 'new' ? 'new' : 'paid' ?>"><?= $m['status'] === 'new' ? 'Neriješeno' : 'Riješeno' ?></span>
+        </div>
+        <p class="msg-body"><?= nl2br(h($m['message'])) ?></p>
+        <div class="msg-foot">
+          <small class="muted">Poslano na: <?= h($m['sent_to'] ?? '–') ?><?= $m['handled_by'] ? ' · riješio ' . h($m['handled_by']) . ', ' . h(date('d.m.Y', strtotime($m['handled_at']))) : '' ?></small>
+          <div class="actions">
+            <a class="btn small" href="mailto:<?= h($m['email']) ?>?subject=<?= rawurlencode('Re: Čuvar brata svoga') ?>">Odgovori</a>
+            <form method="post"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$m['id'] ?>"><input type="hidden" name="show" value="<?= $showAll ? 'all' : '' ?>">
+              <?php if ($m['status'] === 'new'): ?><button class="btn small ghost" name="do" value="done">✓ Riješeno</button>
+              <?php else: ?><button class="btn small ghost" name="do" value="reopen">Vrati u neriješeno</button><?php endif; ?>
+            </form>
+            <form method="post" onsubmit="return confirm('Trajno obrisati ovu poruku?')"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$m['id'] ?>"><input type="hidden" name="show" value="<?= $showAll ? 'all' : '' ?>"><button class="btn small danger" name="do" value="delete">Obriši</button></form>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; endif;
     page_end();
 }
 
