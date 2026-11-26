@@ -6,3 +6,6 @@ Thumbs.db
 api/config.php
 data/*
 !data/.htaccess
+
+# Vercel build output (generira se na Vercelu)
+vercel-out/

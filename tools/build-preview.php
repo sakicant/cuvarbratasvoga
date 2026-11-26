@@ -3,13 +3,15 @@
  * Statični pregled stranice za Vercel (Vercel ne pokreće PHP).
  * Pokreni nakon svake izmjene teksta ili izgleda:   php tools/build-preview.php
  * Rezultat: mapa /preview s HTML stranicama za svih 7 jezika (index.html, index.mk.html, povijest.en.html …).
+ * Vercel pri objavi kopira preview/ i assets/ u jednu mapu (vercel.json → buildCommand) i poslužuje je od korijena:
+ * cuvarbratasvoga.vercel.app/o-nama.html – bez /preview/. Pravi PHP site se ne mijenja.
  * Prijava i admin rade samo na pravom PHP poslužitelju – u pregledu su skriveni.
  */
 declare(strict_types=1);
 if (PHP_SAPI !== 'cli') { http_response_code(403); exit; }
 
 define('CBS_STATIC', true);
-define('CBS_ASSET_PREFIX', '../');
+define('CBS_ASSET_PREFIX', '');   // na Vercelu su stranice i /assets u istoj (korijenskoj) mapi
 $root = dirname(__DIR__);
 $out = $root . '/preview';
 if (!is_dir($out)) mkdir($out, 0775, true);

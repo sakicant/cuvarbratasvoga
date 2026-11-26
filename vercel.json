@@ -1,24 +1,11 @@
 {
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "rm -rf vercel-out && mkdir vercel-out && cp -r preview/. vercel-out/ && cp -r assets vercel-out/assets",
+  "outputDirectory": "vercel-out",
   "redirects": [
-    {
-      "source": "/",
-      "destination": "/preview/",
-      "permanent": false
-    },
-    {
-      "source": "/index.php",
-      "destination": "/preview/",
-      "permanent": false
-    },
-    {
-      "source": "/(o-nama|povijest|mediji|prijava|kontakt|privatnost)\\.(php|html)",
-      "destination": "/preview/$1.html",
-      "permanent": false
-    },
-    {
-      "source": "/(api|admin|inc|lang|tools|data)/(.*)",
-      "destination": "/preview/",
-      "permanent": false
-    }
+    { "source": "/preview/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/index.php", "destination": "/", "permanent": false },
+    { "source": "/(o-nama|povijest|mediji|prijava|kontakt|privatnost)\.php", "destination": "/$1.html", "permanent": false }
   ]
 }
