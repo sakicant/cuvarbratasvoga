@@ -1,0 +1,5 @@
+# Samo register.php je javno dostupan
+<FilesMatch "^(config|config\.sample|lib)\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

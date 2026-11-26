@@ -1,3 +1,8 @@
 .claude/
 .DS_Store
 Thumbs.db
+
+# tajne postavke i baza – nikad na GitHub
+api/config.php
+data/*
+!data/.htaccess

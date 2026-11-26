@@ -1,39 +1,53 @@
 # cuvarbratasvoga.com
 
-New website for **Čuvar brata svoga (ČBS)**. Plain HTML/CSS/JS: no build step, works on any static host (GitHub Pages, Netlify, cPanel).
+Website for **Čuvar brata svoga (ČBS)** with its own sign-up system (no Google Forms).
+Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.0+). GitHub Pages can't run it.
 
-## Pages
+## What's in it
 
-| File | What it is |
+| Path | What it is |
 |---|---|
-| `index.html` | Home: current gathering, invitation, schedule, prices, sign-up, payments by country, contact |
-| `povijest.html` | History: documentary film, mission, timeline of every gathering |
-| `mediji.html` | All talks from YouTube, filter by year, search by title/speaker |
+| `index.html` | Home: current gathering, invitation, schedule, prices, **sign-up form**, payments by country |
+| `povijest.html` | History: documentary, mission, timeline |
+| `mediji.html` | All talks from YouTube, filter by year, search |
+| `privatnost.html` | Privacy notice linked from the sign-up form |
+| `api/register.php` | Receives sign-ups, saves them, sends confirmation e-mail |
+| `admin/` | Admin panel: login, applicants, deposit status, notes, Excel export |
+| `data/` | SQLite database lives here (blocked from the web by `.htaccess`) |
 
-## Updating each year
+## Admin access
 
-1. **`assets/js/config.js`**: number, theme, dates, place, Google Form link, payment accounts.
-   After the `end` date passes, the site switches to "gathering finished" mode by itself (sign-up buttons hide).
-   To preview the "sign-up open" mode, add `?prijave=1` to the URL.
-2. **`index.html`**: invitation text, schedule table, prices (text sections).
-3. **`assets/img/plakat-2026.jpg`**: replace with the new poster (keep the name, or update the 3 references).
-4. **`assets/docs/`**: new invitation letters and schedule PDF.
+- **Main admin** (no country): sees every country, adds/removes admins, resets passwords.
+- **Country admin** (HR, BA, RS, ME, MK, SI): sees and edits **only** applicants from their country.
+  Gets an e-mail for each new sign-up from their country (if an e-mail is set).
+- Sign-ups with country "Ostalo" are visible to the main admin only.
+
+## Install on the server (one time)
+
+1. Upload everything to `public_html` (except `.git`).
+2. Copy `api/config.sample.php` to `api/config.php` and fill in:
+   - `secret` and `setup_key`: long random strings
+   - `mail.from`: an address on your domain, e.g. `prijave@cuvarbratasvoga.com`
+   - optional: move the database outside `public_html` (see comment in the file), or use MySQL
+3. Open `https://cuvarbratasvoga.com/admin/`, enter the `setup_key`, create the main admin.
+4. In **Admini**, add one admin per country. Each gets a one-time password to pass on; they change it under **Lozinka**.
+5. Submit one test sign-up and check that the confirmation e-mail arrives (check spam too).
+
+## Each year
+
+1. `assets/js/config.js`: number, dates, place, theme (what the website shows).
+2. `api/config.php` → `event`: year, number, theme, start date (what e-mails and age calculation use). Set `registration_open`.
+3. `index.html`: invitation text, schedule, prices.
+4. Old years stay in the database; switch year in the admin panel's dropdown.
 
 ## Adding talks
 
-Open `assets/js/talks.js` and add a line:
-
-```js
-{ id: "YOUTUBE_ID", year: 2027, title: "Naslov", speaker: "Ime Prezime", duration: "35:10" },
-```
-
-`YOUTUBE_ID` is the part after `watch?v=` in the YouTube link. Add `type: "promo"` for trailers/announcements.
-Add the year's theme to `CBS_YEARS` at the top of the same file.
+In `assets/js/talks.js` add: `{ id: "YOUTUBE_ID", year: 2027, title: "Naslov", speaker: "Ime Prezime", duration: "35:10" },`
 
 ## Local preview
 
 ```
-python -m http.server 8000
+php -S localhost:8000
 ```
 
-Then open http://localhost:8000
+(Requires the `pdo_sqlite` and `mbstring` PHP extensions.) Set `'enabled' => false` under `mail` in your local `api/config.php`.

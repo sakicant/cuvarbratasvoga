@@ -2,7 +2,7 @@
  * Popis videa s YouTube kanala Čuvar Brata Svoga.
  * Za novu propovijed dodaj red: { id: "YOUTUBE_ID", year: 2027, title: "Naslov", speaker: "Ime Prezime", duration: "35:10" }
  * YOUTUBE_ID je dio linka nakon "watch?v=" (npr. youtube.com/watch?v=18b8sSPA3bY -> "18b8sSPA3bY").
- * type: "talk" (propovijed, zadano) ili "promo" (najava, utisci, ostalo).
+ * type: "talk" (propovijed, zadano) ili "promo" (o pokretu – prikazuje se samo na stranici Povijest).
  */
 window.CBS_YEARS = {
   2010: { no: 1,  theme: "Prvo okupljanje", place: "Zagreb, Hrvatska" },
@@ -28,13 +28,11 @@ window.CBS_TALKS = [
   { id: "G0V__d-lyxg", year: 2026, title: "Biti pouzdan kad nitko ne gleda", speaker: "Miki Kamberović", duration: "28:58" },
   { id: "inWN_0d28bY", year: 2026, title: "Prepoznati kada treba dići sidro i otploviti", speaker: "Dušan Beređi Bera", duration: "37:21" },
   { id: "yf-JzZ5jiMc", year: 2026, title: "Rekapitulacija ČBS 2026.", speaker: "Petar Fabijanić", duration: "40:26" },
-  { id: "QjvYybn0z1Q", year: 2026, title: "Poziv na ČBS 2026", speaker: "Najava", duration: "3:57", type: "promo" },
 
   // 2024 – Godina jubileja
   { id: "cNvgVNqyzWY", year: 2024, title: "Dobrodošli na praznik jubileja", speaker: "Oliver Buljat", duration: "32:35" },
   { id: "87I4TuAtlx0", year: 2024, title: "Razotkrivanje jubileja", speaker: "Miroslav Radovanović", duration: "22:41" },
   { id: "sixK9wzf-Gw", year: 2024, title: "Demonstracija jubileja", speaker: "Jasmin Avdagić", duration: "47:31" },
-  { id: "ubIG3WNoi9w", year: 2024, title: "Najava – ČBS 2024. Dalmacija", speaker: "Najava", duration: "3:29", type: "promo" },
 
   // 2023 – Svetost
   { id: "krtH_015xrA", year: 2023, title: "Božja svetost", speaker: "Boris Babarović", duration: "31:33" },
@@ -42,7 +40,6 @@ window.CBS_TALKS = [
   { id: "HKXGw1NZax8", year: 2023, title: "Svetost u akciji", speaker: "Dušan Beređi Bera", duration: "41:56" },
   { id: "hIFZ3QKxufs", year: 2023, title: "Završna poruka", speaker: "Miroslav Radovanović", duration: "22:17" },
   { id: "z5zPth-s2jk", year: 2023, title: "Što je ČBS", speaker: "Oliver Buljat", duration: "14:35", type: "promo" },
-  { id: "l4_y69ssC4U", year: 2023, title: "Najava – ČBS 2023.", speaker: "Najava", duration: "3:21", type: "promo" },
 
   // 2022
   { id: "lAnUhKkXE5g", year: 2022, title: "Junak s junakom – prijateljstvo", speaker: "Nebojša Savić", duration: "35:02" },
@@ -69,7 +66,6 @@ window.CBS_TALKS = [
   { id: "1hblbWzK2oo", year: 2017, title: "Ostajem vjeran bez obzira na cijenu", speaker: "Jasmin Avdagić", duration: "1:09:32" },
   { id: "8PCm0n74Zyk", year: 2017, title: "Vjernost – moja privilegija i odgovornost", speaker: "Miroslav Radovanović", duration: "27:57" },
   { id: "GKGpF8m1-9c", year: 2017, title: "ČBS 2017 – utisci", speaker: "ČBS", duration: "5:52", type: "promo" },
-  { id: "PL4y8CeXGus", year: 2017, title: "Promo ČBS 2017", speaker: "Najava", duration: "3:36", type: "promo" },
   { id: "CQL0wFO066k", year: 2017, title: "„My brother's keeper” na slovenskoj televiziji", speaker: "TV prilog", duration: "15:31", type: "promo" },
 
   // 2016 – Počinak (Adlešiči, Slovenija)
@@ -80,11 +76,8 @@ window.CBS_TALKS = [
   { id: "0Cz-Jn_0evk", year: 2016, title: "Pregled ČBS okupljanja", speaker: "Damir Špoljarić", duration: "21:19" },
   { id: "mlt4ExwiS7g", year: 2016, title: "Počinak iz Božje perspektive", speaker: "", duration: "50:44" },
   { id: "b4IkiBaUX6A", year: 2016, title: "Slušaj Izraele – slavljenje, Adlešiči", speaker: "Slavljenje", duration: "7:18", type: "promo" },
-  { id: "qjrMgupuFvU", year: 2016, title: "Najava – ČBS 2016", speaker: "Najava", duration: "3:41", type: "promo" },
 
   // 2015 – Čast i poštovanje
-  { id: "XYRTrKKgKmY", year: 2015, title: "Najava – ČBS 2015", speaker: "Najava", duration: "3:14", type: "promo" },
-  { id: "6iw00L5_pJI", year: 2015, title: "Varuh svojega brata – promo 2015 (SL)", speaker: "Najava", duration: "3:14", type: "promo" },
 
   // 2014 – Disciplinom do izvrsnosti
   { id: "AI2YkDhLT34", year: 2014, title: "Disciplinom do izvrsnosti", speaker: "Oliver Buljat", duration: "40:47" },
@@ -92,7 +85,6 @@ window.CBS_TALKS = [
   { id: "QEGIAy-HFns", year: 2014, title: "Disciplina i izvrsnost u tvom posebnom pozivu", speaker: "Steve Telzerow", duration: "1:06:25" },
   { id: "-_RnqZGcIpg", year: 2014, title: "Izvrstan karakter i disciplina", speaker: "Karmelo Kresonja", duration: "39:23" },
   { id: "Gxsx63WBmPA", year: 2014, title: "Disciplina i nagrada", speaker: "Jasmin Avdagić", duration: "1:15:27" },
-  { id: "KymCmDMwj70", year: 2014, title: "Čuvar brata svoga – promo", speaker: "Najava", duration: "4:18", type: "promo" },
 
   // 2013 – Ratnici i ljubavnici
   { id: "IG2zY5spNV0", year: 2013, title: "Hrabro srce", speaker: "Nebojša Savić", duration: "36:50" },

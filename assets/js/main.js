@@ -6,13 +6,24 @@
   var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
 
   /* ---------- mobilni izbornik ---------- */
-  var menuBtn = $(".menu-btn"), nav = $(".nav");
+  var menuBtn = $(".menu-btn"), nav = $(".nav"), header = $(".site-header");
   if (menuBtn && nav) {
     menuBtn.addEventListener("click", function () {
       var open = nav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", open);
+      if (header) header.classList.toggle("menu-open", open);
     });
-    $$("a", nav).forEach(function (a) { a.addEventListener("click", function () { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }); });
+    $$("a", nav).forEach(function (a) { a.addEventListener("click", function () {
+      nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false");
+      if (header) header.classList.remove("menu-open");
+    }); });
+  }
+
+  /* ---------- prozirno zaglavlje: dobiva pozadinu kad se skrola ---------- */
+  if (header) {
+    var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 10); };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
   /* ---------- stanje okupljanja: otvorene prijave / završeno ---------- */
@@ -181,7 +192,7 @@
       });
     }
     q.addEventListener("input", function () { state.q = q.value; render(); });
-    promo.addEventListener("change", function () { state.promo = promo.checked; render(); });
+    if (promo) promo.addEventListener("change", function () { state.promo = promo.checked; render(); });
     render();
   }
 
