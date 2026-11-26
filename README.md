@@ -7,13 +7,35 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 
 | Path | What it is |
 |---|---|
-| `index.html` | Home: current gathering, invitation, schedule, prices, **sign-up form**, payments by country |
-| `povijest.html` | History: documentary, mission, timeline |
-| `mediji.html` | All talks from YouTube, filter by year, search |
-| `privatnost.html` | Privacy notice linked from the sign-up form |
+| `index.php` | Home: gathering, invitation, prices, **sign-up form**, payments by country |
+| `povijest.php` | History: documentary, mission, timeline |
+| `mediji.php` | All talks from YouTube, filter by year, search |
+| `privatnost.php` | Privacy notice linked from the sign-up form |
+| `lang/` | **All website text, one file per language** (see Languages below) |
+| `inc/layout.php` | Shared header/footer, **header logo setting** at the top |
+| `assets/brand/` | **Logo set** for all materials. Open `assets/brand/index.html` for a preview + downloads |
 | `api/register.php` | Receives sign-ups, saves them, sends confirmation e-mail |
 | `admin/` | Admin panel: login, applicants, deposit status, notes, Excel export |
 | `data/` | SQLite database lives here (blocked from the web by `.htaccess`) |
+
+## Languages
+
+7 languages: Croatian (`hr`, source), Bosnian (`bs`), Serbian Latin (`sr`), Montenegrin (`cnr`), Macedonian (`mk`), Slovenian (`sl`), English (`en`).
+
+- Visitors get their browser's language automatically (regional languages first, English only if none match); the switcher in the header changes it and remembers the choice.
+- Links: `index.php?lang=mk`, `mediji.php?lang=sl`, … (Croatian has no `?lang`).
+- To change a text: edit it in `lang/xx.php` (only the part right of `=>`). Croatian `lang/hr.php` is the source; a text missing in another language shows in Croatian.
+- After editing, run `php lang/check.php` – it reports missing texts or broken placeholders/HTML.
+- Confirmation e-mails go out in the language the applicant used; the admin panel shows it. The admin panel itself is Croatian.
+- Talk titles stay in the language they were given in.
+
+## Logo
+
+- `assets/brand/png/` – logo in 6 colours (original, black, white, gold, BiH blue, BiH yellow), 256–2048 px, transparent.
+- `assets/brand/square/` – 1080×1080 profile/post images. `assets/brand/favicon/` – browser and phone icons.
+- `assets/brand/cbs-logo-set.zip` – everything in one download.
+- Footer always uses the white logo. Header logo: change `CBS_HEADER_LOGO` at the top of `inc/layout.php`.
+- Made from the 900 px logo on the YouTube channel. For large print (banners, T-shirts) get a vector file (SVG/AI/PDF) from the logo's designer.
 
 ## Admin access
 
@@ -35,7 +57,7 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 
 ## Each year
 
-1. `assets/js/config.js`: number, dates, place, theme (what the website shows).
+1. `assets/js/config.js`: dates for the countdown. Place/theme texts: `event.*` in each `lang/xx.php`.
 2. `api/config.php` → `event`: year, number, theme, start date (what e-mails and age calculation use). Set `registration_open`.
 3. `index.html`: invitation text, schedule, prices.
 4. Old years stay in the database; switch year in the admin panel's dropdown.

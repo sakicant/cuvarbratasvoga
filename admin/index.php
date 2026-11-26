@@ -42,12 +42,12 @@ function page_start(string $title, ?array $me = null): void
 <html lang="hr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title><?= h($title) ?> · ČBS admin</title>
-<link rel="icon" href="../assets/img/logo.png">
+<link rel="icon" href="../assets/brand/favicon/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="admin.css">
 </head><body>
 <header class="top">
-  <a class="brand" href="./"><img src="../assets/img/logo-light.png" alt=""><span>ČBS admin</span></a>
+  <a class="brand" href="./"><img src="../assets/brand/png/cbs-logo-white-256.png" alt=""><span>ČBS admin</span></a>
   <?php if ($me): ?>
   <nav>
     <a href="./">Prijave</a>
@@ -230,13 +230,13 @@ if ($a === 'export') {
     header('Content-Disposition: attachment; filename="' . $fn . '"');
     $out = fopen('php://output', 'w');
     fwrite($out, "\xEF\xBB\xBF");
-    $cols = ['Broj prijave', 'Ime', 'Prezime', 'E-mail', 'Mobitel', 'Datum rođenja', 'Dob', 'Država', 'Grad', 'Adresa', 'Crkva', 'Smještaj', 'Majica', 'Posebne potrebe', 'Status', 'Uplaćeno', 'Bilješka', 'Prijavljen'];
+    $cols = ['Broj prijave', 'Ime', 'Prezime', 'E-mail', 'Mobitel', 'Datum rođenja', 'Dob', 'Država', 'Grad', 'Adresa', 'Crkva', 'Smještaj', 'Majica', 'Posebne potrebe', 'Status', 'Uplaćeno', 'Bilješka', 'Prijavljen', 'Jezik'];
     fputcsv($out, $cols, ';');
     $start = event_start_for($year);
     while ($r = $s->fetch()) {
         $row = [$r['ref'], $r['first_name'], $r['last_name'], $r['email'], $r['phone'], date('d.m.Y', strtotime($r['birth_date'])), age_at($r['birth_date'], $start),
             country_name($r['country']), $r['city'], $r['address'], $r['church'], CBS_ACCOM[$r['accommodation']] ?? $r['accommodation'], $r['tshirt'], $r['notes'],
-            CBS_STATUS[$r['status']] ?? $r['status'], $r['paid_at'] ? date('d.m.Y', strtotime($r['paid_at'])) : '', $r['admin_note'], date('d.m.Y H:i', strtotime($r['created_at']))];
+            CBS_STATUS[$r['status']] ?? $r['status'], $r['paid_at'] ? date('d.m.Y', strtotime($r['paid_at'])) : '', $r['admin_note'], date('d.m.Y H:i', strtotime($r['created_at'])), strtoupper($r['lang'] ?? 'hr')];
         // zaštita od formula u Excelu
         $row = array_map(fn($v) => is_string($v) && preg_match('/^[=+\-@\t\r]/', $v) ? "'" . $v : $v, $row);
         fputcsv($out, $row, ';');
@@ -386,6 +386,7 @@ if ($a === 'view') {
           <dt>Mobitel</dt><dd><a href="tel:<?= h(preg_replace('/[^\d+]/', '', $r['phone'])) ?>"><?= h($r['phone']) ?></a></dd>
           <dt>Datum rođenja</dt><dd><?= h(date('d.m.Y', strtotime($r['birth_date']))) ?> (<?= $age ?> god.<?= $age < 18 ? ' · <b>maloljetan</b>' : '' ?>)</dd>
           <dt>Država</dt><dd><?= h(country_name($r['country'])) ?></dd>
+          <dt>Jezik prijave</dt><dd><?= h(strtoupper($r['lang'] ?? 'hr')) ?> <small class="muted">(na tom jeziku je poslan potvrdni e-mail)</small></dd>
           <dt>Grad</dt><dd><?= h($r['city']) ?></dd>
           <dt>Adresa</dt><dd><?= h($r['address']) ?></dd>
           <dt>Crkva / zajednica</dt><dd><?= h($r['church'] ?: '–') ?></dd>

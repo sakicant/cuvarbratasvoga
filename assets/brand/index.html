@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ČBS logo – set za materijale</title>
+<link rel="icon" href="favicon/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1b1511; --paper: #fbf8f2; --line: #e3d9c8; --muted: #6e6357; --gold: #c9a24a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Barlow, system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.5; }
+  header { background: var(--ink); color: #fff; padding: 40px 20px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  h1, h2 { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 .3em; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+  h2 { font-size: 1.8rem; margin-top: 48px; }
+  header p { color: #cfc4af; max-width: 70ch; margin: 0; }
+  .btn { display: inline-block; margin-top: 18px; background: var(--gold); color: var(--ink); font: 700 1.05rem "Barlow Condensed"; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 12px 22px; border-radius: 999px; }
+  .note { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-top: 28px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .preview { height: 220px; display: grid; place-items: center; padding: 24px; }
+  .preview img { max-width: 100%; max-height: 100%; }
+  .check { background-color: #fff; background-image: linear-gradient(45deg,#eee 25%,transparent 25%,transparent 75%,#eee 75%),linear-gradient(45deg,#eee 25%,transparent 25%,transparent 75%,#eee 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px; }
+  .meta { padding: 14px 16px; border-top: 1px solid var(--line); }
+  .meta b { display: block; font-size: 1.05rem; }
+  .meta small { color: var(--muted); }
+  .dl { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .dl a { font-size: .85rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .dl a:hover { border-color: var(--gold); }
+  footer { padding: 48px 20px 64px; color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>ČBS logo – set</h1>
+    <p>Isti logo u svim bojama i veličinama za web, društvene mreže, plakate i majice. Prozirna pozadina (PNG) – logo se može staviti na bilo koju podlogu.</p>
+    <a class="btn" href="cbs-logo-set.zip" download>⬇ Preuzmi sve (ZIP)</a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="note"><b>Koju verziju kada?</b> Na svijetloj podlozi: <i>original</i> ili <i>crna</i>. Na tamnoj ili fotografiji: <i>bijela</i> ili <i>zlatna</i>. Za materijale ČBS 2027 (BiH): <i>BiH plava</i> na svijetlom, <i>BiH žuta</i> na plavom.
+  Najveća verzija je 2048 px – dovoljno za web, društvene mreže i A4 tisak. Za velike plakate, transparente i tisak na majice zatražite vektorsku datoteku (SVG/AI/PDF) od dizajnera loga.</div>
+
+  <h2>Logo – prozirna pozadina</h2>
+  <div class="grid" id="logos"></div>
+
+  <h2>Kvadratne slike (profilna slika, objave)</h2>
+  <div class="grid" id="squares"></div>
+
+  <h2>Ikone za web stranicu</h2>
+  <div class="grid" id="icons"></div>
+</main>
+<footer class="wrap">Izvor: logo s YouTube kanala Čuvar Brata Svoga (900 px), mapa <code>source/</code>.</footer>
+
+<script>
+  var LOGOS = [
+    ["original", "Original (smeđa)", "#ffffff"],
+    ["black", "Crna", "#ffffff"],
+    ["white", "Bijela", "#1b1511"],
+    ["gold", "Zlatna", "#1b1511"],
+    ["bih-blue", "BiH plava", "#ffffff"],
+    ["bih-yellow", "BiH žuta", "#002395"]
+  ];
+  var html = "";
+  LOGOS.forEach(function (l) {
+    html += '<div class="card"><div class="preview" style="background:' + l[2] + '"><img src="png/cbs-logo-' + l[0] + '-512.png" alt="Logo ' + l[1] + '"></div>' +
+      '<div class="meta"><b>' + l[1] + '</b><small>PNG, prozirna pozadina</small><div class="dl">' +
+      [256, 512, 1024, 2048].map(function (w) { return '<a href="png/cbs-logo-' + l[0] + '-' + w + '.png" download>' + w + ' px</a>'; }).join("") +
+      '</div></div></div>';
+  });
+  document.getElementById("logos").innerHTML = html;
+
+  var SQ = [["dark", "Bijeli na tamnom"], ["light", "Original na bijelom"], ["bih", "Bijeli na BiH plavoj"], ["gold", "Zlatni na tamnom"]];
+  document.getElementById("squares").innerHTML = SQ.map(function (s) {
+    return '<div class="card"><div class="preview check"><img src="square/cbs-square-' + s[0] + '-1080.jpg" alt="' + s[1] + '"></div>' +
+      '<div class="meta"><b>' + s[1] + '</b><small>1080 × 1080 px</small><div class="dl">' +
+      '<a href="square/cbs-square-' + s[0] + '-1080.png" download>PNG</a><a href="square/cbs-square-' + s[0] + '-1080.jpg" download>JPG</a></div></div></div>';
+  }).join("");
+
+  var IC = [["favicon.ico", "favicon.ico", "16, 32, 48 px"], ["apple-touch-icon.png", "Apple ikona", "180 px"], ["icon-192.png", "Android ikona", "192 px"], ["icon-512.png", "Ikona aplikacije", "512 px"]];
+  document.getElementById("icons").innerHTML = IC.map(function (i) {
+    return '<div class="card"><div class="preview check"><img src="favicon/' + (i[0] === "favicon.ico" ? "favicon-32.png" : i[0]) + '" alt="' + i[1] + '" style="width:96px"></div>' +
+      '<div class="meta"><b>' + i[1] + '</b><small>' + i[2] + '</small><div class="dl"><a href="favicon/' + i[0] + '" download>Preuzmi</a></div></div></div>';
+  }).join("");
+</script>
+</body>
+</html>

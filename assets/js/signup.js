@@ -7,6 +7,8 @@
   var errBox = form.querySelector(".form-error");
   var btn = form.querySelector(".btn-submit");
   var API = "api/register.php";
+  var TR = window.CBS_TR || { T: function (k) { return k; }, lang: "hr" };
+  var T = TR.T;
 
   function fieldBox(name) {
     var el = form.querySelector('[name="' + name + '"]');
@@ -27,18 +29,18 @@
   function showError(msg) { errBox.textContent = msg; errBox.hidden = false; }
 
   function localCheck(data) {
-    var e = {};
-    if ((data.first_name || "").trim().length < 2) e.first_name = "Upiši ime.";
-    if ((data.last_name || "").trim().length < 2) e.last_name = "Upiši prezime.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || "")) e.email = "Upiši ispravnu e-mail adresu.";
-    if ((data.phone || "").replace(/\D/g, "").length < 6) e.phone = "Upiši broj mobitela.";
-    if (!data.birth_date) e.birth_date = "Upiši datum rođenja.";
-    if (!data.country) e.country = "Odaberi državu.";
-    if ((data.city || "").trim().length < 2) e.city = "Upiši grad.";
-    if ((data.address || "").trim().length < 3) e.address = "Upiši adresu.";
-    if (!data.accommodation) e.accommodation = "Odaberi smještaj.";
-    if (!data.tshirt) e.tshirt = "Odaberi veličinu majice.";
-    if (!data.consent) e.consent = "Potrebna je tvoja privola.";
+    var e = {}, bad = function (k) { e[k] = T("js.err." + k); };
+    if ((data.first_name || "").trim().length < 2) bad("first_name");
+    if ((data.last_name || "").trim().length < 2) bad("last_name");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || "")) bad("email");
+    if ((data.phone || "").replace(/\D/g, "").length < 6) bad("phone");
+    if (!data.birth_date) bad("birth_date");
+    if (!data.country) bad("country");
+    if ((data.city || "").trim().length < 2) bad("city");
+    if ((data.address || "").trim().length < 3) bad("address");
+    if (!data.accommodation) bad("accommodation");
+    if (!data.tshirt) bad("tshirt");
+    if (!data.consent) bad("consent");
     return e;
   }
 
@@ -52,16 +54,19 @@
     dl.innerHTML = "";
     if (pay) {
       pay.rows.forEach(function (r) {
-        if (/više|več|svrha|namen|opis/i.test(r[0])) return;
-        var dt = document.createElement("dt"); dt.textContent = r[0];
+        if (r[0] === "multi" || r[0] === "purpose") return;
+        var dt = document.createElement("dt"); dt.textContent = T("js.pay." + r[0]);
         var dd = document.createElement("dd"); dd.innerHTML = r[1];
         dl.appendChild(dt); dl.appendChild(dd);
       });
     } else {
-      dl.innerHTML = "<dt>Uplata</dt><dd>Javi nam se na cuvar.brata.svoga@gmail.com za upute o uplati.</dd>";
+      dl.innerHTML = "<dt>" + T("js.pay.contact") + "</dt><dd>" + T("js.pay.fallback") + "</dd>";
     }
-    var dt2 = document.createElement("dt"); dt2.textContent = "Svrha uplate";
-    var dd2 = document.createElement("dd"); dd2.textContent = "Donacija za ČBS – " + res.ref + " – " + data.first_name + " " + data.last_name;
+    var dt2 = document.createElement("dt"); dt2.textContent = T("js.pay.purpose");
+    // svrha uplate uvijek na jeziku banke te države (ne prevodi se)
+    var pr = pay && pay.rows.filter(function (r) { return r[0] === "purpose"; })[0];
+    var base = pr ? pr[1].replace(/\s*\(.*\)\s*$/, "").replace(/\.$/, "") : "ČBS " + ((window.CBS_EVENT || {}).year || "");
+    var dd2 = document.createElement("dd"); dd2.textContent = base + " – " + res.ref + " – " + data.first_name + " " + data.last_name;
     dl.appendChild(dt2); dl.appendChild(dd2);
     done.focus();
     done.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -73,29 +78,30 @@
     var fd = new FormData(form), data = {};
     fd.forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
     data.consent = !!form.querySelector('[name="consent"]').checked;
+    data.lang = TR.lang;
 
     var errs = localCheck(data), keys = Object.keys(errs);
     if (keys.length) {
       keys.forEach(function (k) { showFieldError(k, errs[k]); });
-      showError("Provjeri označena polja.");
+      showError(T("js.err.check"));
       var first = fieldBox(keys[0]);
       if (first) { first.scrollIntoView({ behavior: "smooth", block: "center" }); var inp = first.querySelector("input,select,textarea"); if (inp) inp.focus({ preventScroll: true }); }
       return;
     }
 
     btn.disabled = true;
-    btn.textContent = "Šaljem…";
+    btn.textContent = T("js.sending");
     fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
-      .then(function (r) { return r.json().catch(function () { return { ok: false, error: "Prijava trenutno nije dostupna." }; }); })
+      .then(function (r) { return r.json().catch(function () { return { ok: false, error: T("js.err.unavailable") }; }); })
       .then(function (res) {
         if (res.ok) { showDone(res, data); return; }
         if (res.fields) Object.keys(res.fields).forEach(function (k) { showFieldError(k, res.fields[k]); });
-        showError(res.error || "Nešto nije u redu. Pokušaj ponovno.");
+        showError(res.error || T("js.err.generic"));
       })
       .catch(function () {
-        showError("Nema veze s poslužiteljem. Provjeri internet i pokušaj ponovno, ili nam piši na cuvar.brata.svoga@gmail.com.");
+        showError(T("js.err.network"));
       })
-      .then(function () { btn.disabled = false; btn.textContent = "Pošalji prijavu"; });
+      .then(function () { btn.disabled = false; btn.textContent = T("js.submit"); });
   });
 
   form.addEventListener("input", function (e) {

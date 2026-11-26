@@ -113,6 +113,12 @@ function migrate(PDO $pdo): void
         ip_hash $s NOT NULL,
         at INT NOT NULL
     )$end");
+    // dodani stupci (za baze kreirane prije)
+    $cols = $sqlite
+        ? array_column($pdo->query('PRAGMA table_info(registrations)')->fetchAll(), 'name')
+        : $pdo->query('SHOW COLUMNS FROM registrations')->fetchAll(PDO::FETCH_COLUMN);
+    if (!in_array('lang', $cols, true)) $pdo->exec("ALTER TABLE registrations ADD COLUMN lang $s");
+
     foreach ([
         'CREATE INDEX idx_reg_year_country ON registrations (year, country)',
         'CREATE INDEX idx_att ON attempts (kind, ip_hash, at)',

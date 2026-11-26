@@ -86,6 +86,22 @@ p { margin: 0 0 1em; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--bone); }
 .brand img { width: 50px; height: auto; }
+.site-header .wrap { justify-content: flex-start; }
+.site-header .brand { margin-right: auto; }
+.site-header .nav { order: 1; }
+.site-header .lang { order: 2; }
+.site-header .menu-btn { order: 3; }
+
+/* izbornik jezika */
+.lang { position: relative; margin-left: 6px; }
+.lang summary { list-style: none; cursor: pointer; font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: .1em; color: var(--bone); border: 1px solid rgba(244,237,225,.35); border-radius: 999px; padding: 6px 12px 6px 14px; display: flex; align-items: center; gap: 6px; }
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.lang summary:hover, .lang[open] summary { border-color: var(--gold); color: var(--gold-2); }
+.lang ul { position: absolute; right: 0; top: calc(100% + 10px); list-style: none; margin: 0; padding: 8px; min-width: 200px; background: var(--ink); border: 1px solid var(--line-dark); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.4); z-index: 60; }
+.lang li a { display: flex; gap: 10px; align-items: baseline; padding: 9px 12px; border-radius: 8px; color: var(--muted-dark); text-decoration: none; }
+.lang li a b { font-family: var(--display); color: var(--gold); width: 24px; letter-spacing: .06em; }
+.lang li a:hover, .lang li a[aria-current] { background: var(--ink-3); color: var(--bone); }
 .brand span { font-family: var(--display); font-weight: 800; font-size: 1.35rem; letter-spacing: .06em; text-transform: uppercase; line-height: 1; }
 .brand small { display: block; font-weight: 500; font-size: .72rem; letter-spacing: .24em; color: var(--gold); margin-top: 3px; }
 .nav { display: flex; align-items: center; gap: 4px; }
@@ -259,7 +275,7 @@ p { margin: 0 0 1em; }
 }
 .signup::after {
   content: ""; position: absolute; right: -60px; bottom: -80px; width: 340px; height: 340px;
-  background: url("../img/logo-light.png") center/contain no-repeat; opacity: .06;
+  background: url("../brand/png/cbs-logo-white-512.png") center/contain no-repeat; opacity: .06;
 }
 .signup h2 { color: var(--bone); }
 .signup .muted { color: var(--muted-dark); }
@@ -493,4 +509,10 @@ details.sl .inner { padding: 0 22px 22px; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   * { transition: none !important; }
+}
+
+/* makedonski (ćirilica): Barlow nema ćirilična slova */
+:root:lang(mk) {
+  --display: "Fira Sans Extra Condensed", "Arial Narrow", sans-serif;
+  --body: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }

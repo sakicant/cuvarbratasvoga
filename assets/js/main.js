@@ -3,6 +3,23 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var EV = window.CBS_EVENT || {};
+  /* prijevodi (iz lang/*.php, ubacuje ih PHP u window.CBS_T) */
+  var DICT = window.CBS_T || {}, LANG = window.CBS_LANG || "hr";
+  function T(k, vars) {
+    var s = DICT[k];
+    if (s == null) return k;
+    if (typeof s === "object") s = s.other || "";
+    if (vars) Object.keys(vars).forEach(function (v) { s = s.split("{" + v + "}").join(vars[v]); });
+    return s;
+  }
+  function TP(n, k) {
+    var f = DICT[k] || {}, cat = "other";
+    try { cat = new Intl.PluralRules(LANG === "cnr" ? "sr" : LANG).select(n); } catch (e) {}
+    return n + " " + (f[cat] || f.other || "");
+  }
+  window.CBS_TR = { T: T, TP: TP, lang: LANG };
+  /* naziv teme godine na jeziku stranice (iz povijesti), inače izvorni */
+  function themeOf(y) { return DICT["hist.y" + y + "_t"] || ((window.CBS_YEARS || {})[y] || {}).theme || ""; }
   var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
 
   /* ---------- mobilni izbornik ---------- */
@@ -31,8 +48,8 @@
   var forceLive = /[?&]prijave=1/.test(location.search);
   var ended = EV.end && now > new Date(EV.end) && !forceLive;
   document.documentElement.setAttribute("data-event", ended ? "past" : "live");
-  /* kotizacije, prijava i uplate prikazuju se tek kad su prijave otvorene (ili uz ?prijave=1 za pregled) */
-  document.documentElement.setAttribute("data-reg", (EV.registrationOpen || forceLive) ? "open" : "closed");
+  /* data-reg (prijave otvorene/zatvorene) postavlja PHP iz api/config.php; ?prijave=1 = pregled otvorenih prijava */
+  if (forceLive) document.documentElement.setAttribute("data-reg", "open");
 
   $$("[data-ev]").forEach(function (el) {
     var v = EV[el.getAttribute("data-ev")];
@@ -49,7 +66,7 @@
   if (cd && !ended && EV.start) {
     var target = new Date(EV.start);
     cd.setAttribute("role", "timer");
-    cd.innerHTML = ["dana", "sati", "minuta", "sekundi"].map(function (l) { return "<div><b>0</b><span>" + l + "</span></div>"; }).join("");
+    cd.innerHTML = [T("js.days"), T("js.hours"), T("js.minutes"), T("js.seconds")].map(function (l) { return "<div><b>0</b><span>" + l + "</span></div>"; }).join("");
     var nums = $$("b", cd);
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var timer;
@@ -69,22 +86,24 @@
   var payRoot = $("#payments");
   if (payRoot && window.CBS_PAYMENTS) {
     var tabs = document.createElement("div");
-    tabs.className = "tabs"; tabs.setAttribute("role", "tablist"); tabs.setAttribute("aria-label", "Država");
+    tabs.className = "tabs"; tabs.setAttribute("role", "tablist"); tabs.setAttribute("aria-label", T("js.country"));
     var panel = document.createElement("div");
     panel.className = "tab-panel"; panel.setAttribute("role", "tabpanel"); panel.id = "pay-panel";
     var show = function (i) {
       $$(".tab", tabs).forEach(function (t, j) { t.setAttribute("aria-selected", i === j); t.tabIndex = i === j ? 0 : -1; });
       var p = window.CBS_PAYMENTS[i];
-      panel.setAttribute("aria-label", p.country);
+      panel.setAttribute("aria-label", T("country." + p.code));
       panel.innerHTML = "<dl>" + p.rows.map(function (r) {
-        var val = r[2] === "copy" ? '<span class="iban">' + r[1] + '</span><button class="copy" type="button" data-copy="' + r[1] + '">Kopiraj</button>' : r[1];
-        return "<dt>" + r[0] + "</dt><dd>" + val + "</dd>";
+        var val = r[1];
+        if (r[0] === "multi") val = T("js.pay.multi_val", { email: '<a href="mailto:' + r[1] + '">' + r[1] + "</a>" });
+        if (r[2] === "copy") val = '<span class="iban">' + r[1] + '</span><button class="copy" type="button" data-copy="' + r[1] + '">' + T("js.copy") + "</button>";
+        return "<dt>" + T("js.pay." + r[0]) + "</dt><dd>" + val + "</dd>";
       }).join("") + "</dl>";
     };
     window.CBS_PAYMENTS.forEach(function (p, i) {
       var b = document.createElement("button");
       b.type = "button"; b.className = "tab"; b.setAttribute("role", "tab"); b.setAttribute("aria-controls", "pay-panel");
-      b.textContent = p.country;
+      b.textContent = T("country." + p.code);
       b.addEventListener("click", function () { show(i); });
       b.addEventListener("keydown", function (e) {
         var n = window.CBS_PAYMENTS.length;
@@ -98,7 +117,7 @@
     panel.addEventListener("click", function (e) {
       var b = e.target.closest(".copy"); if (!b) return;
       var txt = b.getAttribute("data-copy");
-      var done = function () { b.textContent = "Kopirano ✓"; setTimeout(function () { b.textContent = "Kopiraj"; }, 1800); };
+      var done = function () { b.textContent = T("js.copied"); setTimeout(function () { b.textContent = T("js.copy"); }, 1800); };
       if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function () {});
     });
   }
@@ -109,7 +128,7 @@
     if (!modal) {
       modal = document.createElement("div");
       modal.className = "modal"; modal.setAttribute("role", "dialog"); modal.setAttribute("aria-modal", "true");
-      modal.innerHTML = '<div class="modal-inner"><div class="modal-frame"></div><div class="modal-cap"><div><h3></h3><p></p></div><button class="modal-close" type="button">Zatvori ✕</button></div></div>';
+      modal.innerHTML = '<div class="modal-inner"><div class="modal-frame"></div><div class="modal-cap"><div><h3></h3><p></p></div><button class="modal-close" type="button">' + T("js.close") + '</button></div></div>';
       document.body.appendChild(modal);
       modal.addEventListener("click", function (e) { if (e.target === modal || e.target.closest(".modal-close")) closeVideo(); });
       document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("open")) closeVideo(); });
@@ -117,7 +136,7 @@
     modal._return = document.activeElement;
     $(".modal-frame", modal).innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="' + title.replace(/"/g, "&quot;") + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
     $("h3", modal).textContent = title;
-    $("p", modal).innerHTML = sub + ' · <a href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">Otvori na YouTubeu ↗</a>';
+    $("p", modal).innerHTML = sub + ' · <a href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">' + T("js.open_yt") + "</a>";
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
     $(".modal-close", modal).focus();
@@ -130,12 +149,12 @@
   }
 
   function card(t) {
-    var y = (window.CBS_YEARS || {})[t.year];
-    var meta = "ČBS " + t.year + (y && y.theme && t.type !== "promo" ? " · " + y.theme : "");
+    var th = themeOf(t.year);
+    var meta = "ČBS " + t.year + (th && t.type !== "promo" ? " · " + th : "");
     var el = document.createElement("article");
     el.className = "vcard";
     el.innerHTML =
-      '<button type="button" aria-label="Pogledaj: ' + t.title.replace(/"/g, "&quot;") + '">' +
+      '<button type="button" aria-label="' + T("js.watch") + " " + t.title.replace(/"/g, "&quot;") + '">' +
       '<div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/' + t.id + '/hqdefault.jpg" alt="">' +
       '<span class="dur">' + (t.duration || "") + '</span><span class="play">' + PLAY + "</span></div></button>" +
       '<div class="vbody"><span class="vmeta"></span><h3></h3><span class="vspeaker"></span></div>';
@@ -164,12 +183,12 @@
       b.type = "button"; b.className = "ychip"; b.textContent = label;
       b.addEventListener("click", function () {
         state.year = val; render();
-        history.replaceState(null, "", val === "all" ? location.pathname : "#" + val);
+        history.replaceState(null, "", location.pathname + location.search + (val === "all" ? "" : "#" + val));
         window.scrollTo({ top: media.offsetTop - 150, behavior: "smooth" });
       });
       b._val = val; chips.appendChild(b);
     }
-    chip("Sve godine", "all");
+    chip(T("js.all_years"), "all");
     chipYears.forEach(function (y) { chip(String(y), y); });
 
     var norm = function (s) { return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d"); };
@@ -180,12 +199,12 @@
       var list = talks.filter(function (t) {
         if (!state.promo && t.type === "promo") return false;
         if (state.year !== "all" && t.year !== state.year) return false;
-        if (nq && norm(t.title + " " + t.speaker + " " + t.year + " " + ((window.CBS_YEARS[t.year] || {}).theme || "")).indexOf(nq) === -1) return false;
+        if (nq && norm(t.title + " " + t.speaker + " " + t.year + " " + themeOf(t.year) + " " + ((window.CBS_YEARS[t.year] || {}).theme || "")).indexOf(nq) === -1) return false;
         return true;
       });
       media.innerHTML = "";
-      count.textContent = list.length + (list.length === 1 ? " video" : " videa");
-      if (!list.length) { media.innerHTML = '<p class="empty">Nema rezultata za ovu pretragu.</p>'; return; }
+      count.textContent = TP(list.length, "js.videos");
+      if (!list.length) { media.innerHTML = '<p class="empty">' + T("js.no_results") + "</p>"; return; }
       years.forEach(function (y) {
         var items = list.filter(function (t) { return t.year === y; });
         if (!items.length) return;
@@ -193,9 +212,9 @@
         var sec = document.createElement("section");
         sec.className = "year-block"; sec.id = "g" + y;
         sec.innerHTML = '<div class="year-head"><h2>' + y + "</h2>" +
-          (info.theme ? '<span class="theme">' + info.theme + "</span>" : "") +
+          (themeOf(y) ? '<span class="theme">' + themeOf(y) + "</span>" : "") +
           (info.place ? '<span class="place">' + info.place + "</span>" : "") +
-          '<span class="count">' + items.length + " " + (items.length === 1 ? "video" : "videa") + "</span></div>";
+          '<span class="count">' + TP(items.length, "js.videos") + "</span></div>";
         var grid = document.createElement("div"); grid.className = "video-grid";
         items.forEach(function (t) { grid.appendChild(card(t)); });
         sec.appendChild(grid); media.appendChild(sec);
