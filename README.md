@@ -58,8 +58,8 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 ## Each year
 
 1. `assets/js/config.js`: dates for the countdown. Place/theme texts: `event.*` in each `lang/xx.php`.
-2. `api/config.php` → `event`: year, number, theme, start date (what e-mails and age calculation use). Set `registration_open`.
-3. `index.html`: invitation text, schedule, prices.
+2. `api/config.php` → `event`: year, theme, start date (what e-mails and age calculation use). Set `registration_open` to `true` to show prices, the sign-up form and payments on the site (and accept sign-ups); `false` hides them. Preview with `?prijave=1`.
+3. `lang/hr.php` (then the other languages): invitation text, prices, schedule. The schedule section goes where the `RASPORED` comment is in `index.php`.
 4. Old years stay in the database; switch year in the admin panel's dropdown.
 
 ## Adding talks
