@@ -5,7 +5,7 @@ page_open('mediji.php', t('media.title'), t('media.description'));
 ?>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero<?= hero_bg('slavljenje-dvorana') ?>">
   <div class="wrap">
     <span class="eyebrow"><?= t('media.eyebrow') ?></span>
     <h1><?= t('media.h1') ?></h1>

@@ -47,12 +47,16 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
   </div>
 </section>
 
+<!-- FOTOGRAFIJA (traka preko cijele širine) -->
+<div class="photo-band" aria-hidden="true"><?= photo('grupa-zajedno', '', '100vw') ?></div>
+
 <!-- OKUPLJANJE -->
 <section class="section" id="okupljanje">
   <div class="wrap split">
     <div class="prose reveal">
       <span class="eyebrow"><?= t('invite.eyebrow') ?></span>
       <h2><?= t('invite.title') ?></h2>
+      <figure class="figure"><?= photo('nadstresnica-sumrak') ?></figure>
       <?php /* POZIVNO PISMO 2027: dok nije objavljeno, prikazuje se „učitavanje“.
                Kad bude gotovo: obriši div.ph-letter i vrati odlomke iz lang datoteka (invite.grace, invite.p1…p3, invite.quote). */ ?>
       <div class="ph-letter" aria-hidden="true">
@@ -66,6 +70,7 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
       <span class="eyebrow"><?= t('expect.eyebrow') ?></span>
       <h2><?= t('expect.title') ?></h2>
       <p class="muted"><?= t('expect.lead') ?></p>
+      <figure class="figure"><?= photo('satori-nocu') ?></figure>
       <div class="features">
         <div class="feature">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
@@ -92,6 +97,9 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
 
 <!-- LOKACIJA -->
 <section class="section" id="lokacija">
+  <div class="wrap">
+    <figure class="panorama reveal"><?= photo('boracko-panorama', '', '(max-width: 1200px) 100vw, 1200px') ?></figure>
+  </div>
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow"><?= t('location.eyebrow') ?></span>
@@ -100,6 +108,7 @@ $fb = 'https://www.facebook.com/CuvarBrataSvoga/';
       <p><?= t('location.text') ?></p>
       <p><a class="btn btn-dark" href="https://maps.app.goo.gl/odYD8kSuALP2ZfG36" data-ev-href="mapUrl" target="_blank" rel="noopener"><?= t('location.map') ?></a></p>
       <p class="map-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Emek Beraka · <?= t('event.place') ?></p>
+      <figure class="figure figure-cap" style="margin-top:26px"><?= photo('boracko-2015-grupa') ?><figcaption>ČBS 2015 · <?= t('event.place') ?></figcaption></figure>
     </div>
     <div class="reveal">
       <span class="eyebrow"><?= t('archive.eyebrow') ?></span>

@@ -16,7 +16,7 @@ $flags = ['HR' => 'hr', 'BA' => 'ba', 'RS' => 'rs', 'ME' => 'me', 'MK' => 'mk', 
 ?>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero<?= hero_bg('grupa-zajedno') ?>">
   <div class="wrap">
     <span class="eyebrow"><?= t('about.eyebrow') ?></span>
     <h1><?= t('about.h1') ?></h1>
@@ -29,6 +29,7 @@ $flags = ['HR' => 'hr', 'BA' => 'ba', 'RS' => 'rs', 'ME' => 'me', 'MK' => 'mk', 
     <div class="prose reveal">
       <span class="eyebrow"><?= t('about.who_eyebrow') ?></span>
       <h2><?= t('about.who_title') ?></h2>
+      <figure class="figure"><?= photo('braca-generacije') ?></figure>
       <p><?= t('about.who_p1') ?></p>
       <p><?= t('about.who_p2') ?></p>
       <p><?= t('about.who_p3') ?></p>
@@ -53,6 +54,10 @@ $flags = ['HR' => 'hr', 'BA' => 'ba', 'RS' => 'rs', 'ME' => 'me', 'MK' => 'mk', 
       <li><span class="n"><?= $i ?></span><h3><?= t("about.v{$i}_t") ?></h3><p><?= t("about.v{$i}_d") ?></p></li>
       <?php endfor; ?>
     </ol>
+    <div class="photo-row reveal">
+      <figure class="figure figure-cap"><?= photo('slavljenje-ruke') ?><figcaption><?= t('about.v3_t') ?></figcaption></figure>
+      <figure class="figure figure-cap"><?= photo('potezanje-uzeta') ?><figcaption><?= t('about.v4_t') ?></figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -62,6 +67,7 @@ $flags = ['HR' => 'hr', 'BA' => 'ba', 'RS' => 'rs', 'ME' => 'me', 'MK' => 'mk', 
       <span class="eyebrow"><?= t('about.year_eyebrow') ?></span>
       <h2><?= t('about.year_title') ?></h2>
       <p><?= t('about.year_p') ?></p>
+      <figure class="figure"><?= photo('logorska-vatra') ?></figure>
       <p><a class="btn btn-dark" href="<?= u('povijest.php') ?>"><?= t('about.cta_film') ?> →</a></p>
     </div>
     <div class="reveal">

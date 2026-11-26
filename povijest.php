@@ -71,6 +71,16 @@ $years = [
       <h2><?= t('hist.years_title') ?></h2>
       <p class="lead"><?= t('hist.years_lead') ?></p>
     </div>
+    <div class="group-strip reveal" aria-hidden="true">
+      <figure class="figure"><?= photo('grupa-1', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-2', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-3', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-4', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-5', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-6', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-7', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+      <figure class="figure"><?= photo('grupa-8', '', '(max-width: 700px) 50vw, 25vw') ?></figure>
+    </div>
     <ol class="timeline reveal">
       <?php foreach ($years as $y => $o):
           $desc = t("hist.y{$y}_d");
@@ -80,7 +90,7 @@ $years = [
           if ($o['link'] === 'signup') $link = '<a href="' . u('prijava.php') . '">' . t('nav.signup') . '</a>';
           $line = implode(' · ', array_filter([$desc, $link], fn($v) => $v !== ''));
       ?>
-      <li<?= !empty($o['big']) ? ' class="big"' : '' ?>><div class="y"><?= $y ?></div><div><h3><?= t("hist.y{$y}_t") ?></h3><?php if ($line !== ''): ?><p><?= $line ?></p><?php endif; ?></div></li>
+      <li<?= !empty($o['big']) ? ' class="big"' : '' ?>><div class="y"><?= $y ?></div><div><h3><?= t("hist.y{$y}_t") ?></h3><?php if ($line !== ''): ?><p><?= $line ?></p><?php endif; ?><?php if ($y === 2019): ?><figure class="tl-photo"><?= photo('evangelizacija-ulica', '', '420px') ?></figure><?php endif; ?></div></li>
       <?php endforeach; ?>
     </ol>
   </div>

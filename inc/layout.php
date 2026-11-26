@@ -145,3 +145,26 @@ function page_close(array $scripts = []): void
 }
 
 function h_(string $s): string { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
+
+/* ===== FOTOGRAFIJE =====
+ * Datoteke su u assets/img/photos/<ime>-800.jpg i <ime>-1600.jpg (1600 nije uvijek tu).
+ * photo('logorska-vatra') ispisuje <img> s obje veličine; preglednik bira odgovarajuću. */
+function photo_src(string $name, int $w = 1600): string
+{
+    $big = __DIR__ . "/../assets/img/photos/$name-1600.jpg";
+    if ($w >= 1600 && is_file($big)) return asset("assets/img/photos/$name-1600.jpg");
+    return asset("assets/img/photos/$name-800.jpg");
+}
+function photo(string $name, string $alt = '', string $sizes = '(max-width: 900px) 100vw, 50vw', bool $lazy = true): string
+{
+    $srcset = photo_src($name, 800) . ' 800w';
+    if (is_file(__DIR__ . "/../assets/img/photos/$name-1600.jpg")) $srcset .= ', ' . photo_src($name, 1600) . ' 1600w';
+    return '<img src="' . photo_src($name, 800) . '" srcset="' . $srcset . '" sizes="' . h_($sizes) . '" alt="' . h_($alt) . '"'
+        . ($lazy ? ' loading="lazy" decoding="async"' : '') . '>';
+}
+/* Pozadina vrha stranice (page-hero) */
+function hero_bg(string $name): string
+{
+    /* url() mora biti u inline stilu: u CSS varijabli bi se putanja čitala relativno prema style.css */
+    return ' has-photo" style="background-image:var(--hero-shade),url(\'' . photo_src($name, 1600) . '\')';
+}

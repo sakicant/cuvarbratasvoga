@@ -6,7 +6,7 @@ $flags = ['HR' => 'hr', 'BA' => 'ba', 'RS' => 'rs', 'ME' => 'me', 'MK' => 'mk', 
 ?>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero<?= hero_bg('sator-nocu') ?>">
   <div class="wrap">
     <span class="eyebrow"><?= t('contact.eyebrow') ?></span>
     <h1><?= t('contact.page_h1') ?></h1>

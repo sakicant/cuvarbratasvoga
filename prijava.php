@@ -9,7 +9,7 @@ $open = cbs_registration_open() || (!defined('CBS_STATIC') && isset($_GET['prija
 ?>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero<?= hero_bg('propovijed-suma') ?>">
   <div class="wrap">
     <span class="eyebrow"><?= t('prij.eyebrow') ?></span>
     <h1><?= t('prij.h1') ?></h1>
