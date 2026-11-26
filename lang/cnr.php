@@ -297,7 +297,6 @@ return [
 'js.submit'           => 'Pošalji prijavu',
 
 /* ---------- poruke servera i e-mail (api/register.php) ---------- */
-'api.closed'          => 'Prijave trenutno nijesu otvorene.',
 'api.too_many'        => 'Previše prijava sa ove adrese. Pokušaj ponovo za sat vremena ili nam piši na e-mail.',
 'api.duplicate'       => 'Već si prijavljen za ovo okupljanje (broj prijave: {ref}). Za izmjene nam se javi e-mailom.',
 'api.server'          => 'Došlo je do greške na serveru. Pokušaj ponovo ili nam piši na cuvar.brata.svoga@gmail.com.',

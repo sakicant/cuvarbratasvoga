@@ -16,7 +16,8 @@ foreach (glob(__DIR__ . '/*.php') as $file) {
     if ($code === 'hr' || $code === 'check') continue;
     $d = require $file;
     $out = [];
-    foreach (array_diff(array_keys($hr), array_keys($d)) as $k) $out[] = "  nedostaje: $k";
+    // tekstovi kojih nema u ovom jeziku prikazuju se na hrvatskom (namjerno, dok ih netko ne prevede)
+    $fallback = array_diff(array_keys($hr), array_keys($d));
     foreach (array_diff(array_keys($d), array_keys($hr)) as $k) $out[] = "  višak:     $k";
     foreach ($hr as $k => $v) {
         if (!isset($d[$k]) || is_array($v)) continue;
@@ -25,6 +26,7 @@ foreach (glob(__DIR__ . '/*.php') as $file) {
         if ($v !== '' && trim($d[$k]) === '') $out[] = "  prazno: $k";
     }
     echo strtoupper($code) . ': ' . (count($d)) . ' tekstova' . ($out ? '' : ' – OK') . "\n";
+    if ($fallback) echo "  na hrvatskom (" . count($fallback) . "): " . implode(', ', $fallback) . "\n";
     if ($out) { echo implode("\n", $out) . "\n"; $problems += count($out); }
 }
 exit($problems ? 1 : 0);

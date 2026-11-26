@@ -171,12 +171,12 @@ return [
 
 /* ---------- history ---------- */
 'hist.title'          => 'History of the movement · Čuvar brata svoga',
-'hist.description'    => 'How the Čuvar brata svoga movement began – from the first gathering in Zagreb in 2010 to today. Watch the documentary “Our Brothers\' Keepers”.',
+'hist.description'    => 'How the Čuvar brata svoga movement began – from the first gathering in Zagreb in 2010 to today. Watch the documentary “Čuvari svoje braće”.',
 'hist.eyebrow'        => 'History of the movement',
-'hist.h1'             => 'Our Brothers\' Keepers',
+'hist.h1'             => 'Čuvari svoje braće',
 'hist.lead'           => 'From the first gathering in Zagreb in 2010 to 2026 in Dalmatia – the story of men from across the region who decided to be keepers of one another.',
-'hist.film_aria'      => 'Play the documentary “Our Brothers\' Keepers” (48 min)',
-'hist.film_cap'       => 'Documentary · Our Brothers\' Keepers · 48 min',
+'hist.film_aria'      => 'Play the documentary “Čuvari svoje braće” (48 min)',
+'hist.film_cap'       => 'Documentary · Čuvari svoje braće · 48 min',
 'hist.what_eyebrow'   => 'What is ČBS',
 'hist.what_title'     => 'A movement, not just a conference',
 'hist.what_p1'        => '“Čuvar brata svoga” (My Brother\'s Keeper) is a Christian movement across the countries of the Balkan region. Its aim is to help men grow into the kind of men God intended them to be in Christ Jesus.',
