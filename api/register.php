@@ -109,7 +109,7 @@ try {
 $name = $f['first_name'] . ' ' . $f['last_name'];
 $pay = cfg('payments')[$f['country']] ?? '';
 $body = "Dragi brate {$f['first_name']},\n\n"
-    . "hvala na prijavi za ČBS {$ev['number']}" . (!empty($ev['theme']) ? " – {$ev['theme']}" : '') . " ({$ev['place']}).\n\n"
+    . "hvala na prijavi za ČBS {$ev['year']}" . (!empty($ev['theme']) ? " – {$ev['theme']}" : '') . " ({$ev['place']}).\n\n"
     . "Tvoj broj prijave: $ref\n\n"
     . "Da bi prijava bila važeća, uplati nepovratnu akontaciju od 20 €.\n"
     . "Svrha uplate: Donacija za ČBS {$ev['year']} – $ref – $name\n\n"

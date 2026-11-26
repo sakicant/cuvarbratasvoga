@@ -5,19 +5,19 @@
  * type: "talk" (propovijed, zadano) ili "promo" (o pokretu – prikazuje se samo na stranici Povijest).
  */
 window.CBS_YEARS = {
-  2010: { no: 1,  theme: "Prvo okupljanje", place: "Zagreb, Hrvatska" },
-  2012: { no: 3,  theme: "Božji upravitelji – Muškarac i njegove financije" },
-  2013: { no: 4,  theme: "Ratnici i ljubavnici" },
-  2014: { no: 5,  theme: "Disciplinom do izvrsnosti" },
-  2015: { no: 6,  theme: "Čast i poštovanje", place: "Boračko jezero, BiH" },
-  2016: { no: 7,  theme: "Počinak", place: "Adlešiči, Slovenija" },
-  2017: { no: 8,  theme: "Vjernost" },
-  2019: { no: 10, theme: "Evangelizacija" },
-  2020: { no: 11, theme: "Prijenos uživo" },
-  2022: { no: 13, theme: "Junaštvo i prijateljstvo" },
-  2023: { no: 14, theme: "Svetost", place: "Crna Gora" },
-  2024: { no: 15, theme: "Godina jubileja", place: "Etno selo Škopljanci, Radošić" },
-  2026: { no: 17, theme: "Sidro duše", place: "Etno selo Škopljanci, Radošić" }
+  2010: { theme: "Prvo okupljanje", place: "Zagreb, Hrvatska" },
+  2012: { theme: "Božji upravitelji – Muškarac i njegove financije" },
+  2013: { theme: "Ratnici i ljubavnici" },
+  2014: { theme: "Disciplinom do izvrsnosti" },
+  2015: { theme: "Čast i poštovanje", place: "Boračko jezero, BiH" },
+  2016: { theme: "Počinak", place: "Adlešiči, Slovenija" },
+  2017: { theme: "Vjernost" },
+  2019: { theme: "Evangelizacija" },
+  2020: { theme: "Prijenos uživo" },
+  2022: { theme: "Junaštvo i prijateljstvo" },
+  2023: { theme: "Svetost", place: "Crna Gora" },
+  2024: { theme: "Godina jubileja", place: "Etno selo Škopljanci, Radošić" },
+  2026: { theme: "Sidro duše", place: "Etno selo Škopljanci, Radošić" }
 };
 
 window.CBS_TALKS = [

@@ -5,7 +5,6 @@
  * dodaj ?prijave=1 na kraj adrese (npr. index.html?prijave=1).
  */
 window.CBS_EVENT = {
-  number: 18,
   year: 2027,
   headline: "Boračko jezero",           // veliki naslov na početnoj (može biti i tema kad je objavite)
   themeLabel: "objavljujemo uskoro",    // tema okupljanja

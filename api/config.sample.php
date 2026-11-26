@@ -8,7 +8,6 @@ return [
     // Trenutno okupljanje (koristi se u e-mailovima i za izračun dobi)
     'event' => [
         'year'       => 2027,
-        'number'     => 18,
         'theme'      => '',                       // upiši kad bude poznata
         'start_date' => '2027-06-24',
         'place'      => 'Boračko jezero, Bosna i Hercegovina',

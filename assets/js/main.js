@@ -185,7 +185,7 @@
         sec.innerHTML = '<div class="year-head"><h2>' + y + "</h2>" +
           (info.theme ? '<span class="theme">' + info.theme + "</span>" : "") +
           (info.place ? '<span class="place">' + info.place + "</span>" : "") +
-          '<span class="count">' + (info.no ? info.no + ". okupljanje · " : "") + items.length + " " + (items.length === 1 ? "video" : "videa") + "</span></div>";
+          '<span class="count">' + items.length + " " + (items.length === 1 ? "video" : "videa") + "</span></div>";
         var grid = document.createElement("div"); grid.className = "video-grid";
         items.forEach(function (t) { grid.appendChild(card(t)); });
         sec.appendChild(grid); media.appendChild(sec);
