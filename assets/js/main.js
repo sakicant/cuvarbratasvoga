@@ -48,13 +48,21 @@
   var cd = $(".countdown");
   if (cd && !ended && EV.start) {
     var target = new Date(EV.start);
+    cd.setAttribute("role", "timer");
+    cd.innerHTML = ["dana", "sati", "minuta", "sekundi"].map(function (l) { return "<div><b>0</b><span>" + l + "</span></div>"; }).join("");
+    var nums = $$("b", cd);
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var timer;
     var tick = function () {
       var ms = target - new Date();
-      if (ms <= 0) { cd.hidden = true; return; }
-      var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
-      cd.innerHTML = "<div><b>" + d + "</b><span>dana</span></div><div><b>" + h + "</b><span>sati</span></div><div><b>" + m + "</b><span>minuta</span></div>";
+      if (ms <= 0) { cd.hidden = true; clearInterval(timer); return; }
+      var s = Math.floor(ms / 1000);
+      nums[0].textContent = Math.floor(s / 86400);
+      nums[1].textContent = pad(Math.floor(s / 3600) % 24);
+      nums[2].textContent = pad(Math.floor(s / 60) % 60);
+      nums[3].textContent = pad(s % 60);
     };
-    tick(); setInterval(tick, 30000);
+    tick(); timer = setInterval(tick, 1000);
   } else if (cd) { cd.hidden = true; }
 
   /* ---------- uplate po državama ---------- */
