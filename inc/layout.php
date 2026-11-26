@@ -51,7 +51,7 @@ function page_open(string $page, string $title, string $description, array $opt 
 <meta property="og:description" content="<?= h_($description) ?>">
 <meta property="og:image" content="assets/brand/square/cbs-square-dark-1080.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#1b1511">
+<meta name="theme-color" content="#1b2a22">
 <?php if (!empty($opt['noindex'])): ?><meta name="robots" content="noindex"><?php endif; ?>
 <?php foreach (CBS_LANGS as $code => $info): ?>
 <link rel="alternate" hreflang="<?= $info['html'] ?>" href="<?= h_(self_url($code)) ?>">

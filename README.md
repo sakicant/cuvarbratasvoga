@@ -31,7 +31,8 @@ Plain HTML/CSS/JS + a small PHP backend. Needs a normal PHP host (Apache, PHP 8.
 
 ## Logo
 
-- `assets/brand/png/` – logo in 6 colours (original, black, white, gold, BiH blue, BiH yellow), 256–2048 px, transparent.
+- `assets/brand/png/` – logo in 7 colours (original brown, black, white, ochre `gold`, pine green `pine`, BiH blue, BiH yellow), 256–2048 px, transparent.
+- Website palette "Pine and ochre": pine `#1b2a22`, ochre `#cc9a2e`, light `#efe9dc`, bark `#6b4a2f` (top of `assets/css/style.css`).
 - `assets/brand/square/` – 1080×1080 profile/post images. `assets/brand/favicon/` – browser and phone icons.
 - `assets/brand/cbs-logo-set.zip` – everything in one download.
 - Footer always uses the white logo. Header logo: change `CBS_HEADER_LOGO` at the top of `inc/layout.php`.

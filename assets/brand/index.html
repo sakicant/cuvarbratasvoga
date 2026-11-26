@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #1b1511; --paper: #fbf8f2; --line: #e3d9c8; --muted: #6e6357; --gold: #c9a24a; }
+  :root { --ink: #1b2a22; --paper: #f8f5ee; --line: #e0d9c9; --muted: #5d685f; --gold: #cc9a2e; }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: Barlow, system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.5; }
   header { background: var(--ink); color: #fff; padding: 40px 20px; }
@@ -42,7 +42,7 @@
   </div>
 </header>
 <main class="wrap">
-  <div class="note"><b>Koju verziju kada?</b> Na svijetloj podlozi: <i>original</i> ili <i>crna</i>. Na tamnoj ili fotografiji: <i>bijela</i> ili <i>zlatna</i>. Za materijale ČBS 2027 (BiH): <i>BiH plava</i> na svijetlom, <i>BiH žuta</i> na plavom.
+  <div class="note"><b>Koju verziju kada?</b> Na svijetloj podlozi: <i>original</i>, <i>borovo zelena</i> ili <i>crna</i>. Na tamnoj ili fotografiji: <i>bijela</i> ili <i>oker</i>. Za materijale ČBS 2027 (BiH): <i>BiH plava</i> na svijetlom, <i>BiH žuta</i> na plavom.
   Najveća verzija je 2048 px – dovoljno za web, društvene mreže i A4 tisak. Za velike plakate, transparente i tisak na majice zatražite vektorsku datoteku (SVG/AI/PDF) od dizajnera loga.</div>
 
   <h2>Logo – prozirna pozadina</h2>
@@ -60,8 +60,9 @@
   var LOGOS = [
     ["original", "Original (smeđa)", "#ffffff"],
     ["black", "Crna", "#ffffff"],
-    ["white", "Bijela", "#1b1511"],
-    ["gold", "Zlatna", "#1b1511"],
+    ["white", "Bijela", "#1b2a22"],
+    ["gold", "Oker (zlatna)", "#1b2a22"],
+    ["pine", "Borovo zelena", "#efe9dc"],
     ["bih-blue", "BiH plava", "#ffffff"],
     ["bih-yellow", "BiH žuta", "#002395"]
   ];
@@ -74,7 +75,7 @@
   });
   document.getElementById("logos").innerHTML = html;
 
-  var SQ = [["dark", "Bijeli na tamnom"], ["light", "Original na bijelom"], ["bih", "Bijeli na BiH plavoj"], ["gold", "Zlatni na tamnom"]];
+  var SQ = [["dark", "Bijeli na borovo zelenoj"], ["light", "Original na bijelom"], ["bih", "Bijeli na BiH plavoj"], ["gold", "Oker na borovo zelenoj"]];
   document.getElementById("squares").innerHTML = SQ.map(function (s) {
     return '<div class="card"><div class="preview check"><img src="square/cbs-square-' + s[0] + '-1080.jpg" alt="' + s[1] + '"></div>' +
       '<div class="meta"><b>' + s[1] + '</b><small>1080 × 1080 px</small><div class="dl">' +
