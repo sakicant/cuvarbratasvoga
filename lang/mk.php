@@ -16,7 +16,7 @@ return [
 'nav.home'        => 'Почетна',
 'nav.gathering'   => 'Собир',
 'nav.history'     => 'Историја',
-'nav.media'       => 'Медиуми',
+'nav.media'       => 'Видео',
 'nav.payments'    => 'Уплати',
 'nav.signup'      => 'Пријави се',
 'nav.menu'        => 'Мени',

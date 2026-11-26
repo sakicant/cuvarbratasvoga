@@ -16,7 +16,7 @@ return [
 'nav.home'        => 'Početna',
 'nav.gathering'   => 'Okupljanje',
 'nav.history'     => 'Istorija',
-'nav.media'       => 'Mediji',
+'nav.media'       => 'Video',
 'nav.payments'    => 'Uplate',
 'nav.signup'      => 'Prijavi se',
 'nav.menu'        => 'Meni',

@@ -16,7 +16,7 @@ return [
 'nav.home'        => 'Home',
 'nav.gathering'   => 'Gathering',
 'nav.history'     => 'History',
-'nav.media'       => 'Media',
+'nav.media'       => 'Videos',
 'nav.payments'    => 'Payments',
 'nav.signup'      => 'Sign up',
 'nav.menu'        => 'Menu',
